@@ -8,11 +8,11 @@ Zoin is the implementation of the Zerocoin protocol ( http://zerocoin.org ) guar
 
  - 2.5 minute block target
  - 21.6 million total coins hardcap
- - 100 coins per block as subsidy(currently @50/block)
+ - 100 coins per block as subsidy(currently @12.5/block)
  - Subsidy halves every 210,000 blocks (approximately 12 months)
 
 For more information, as well as an immediately useable, binary version of
-the zoin client sofware, see https://github.com/zoinofficial/zoin/releases.
+the zoin client sofware, see https://github.com/official-zoin/zoin/releases.
 
 
 License
@@ -33,7 +33,7 @@ development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch
 submitter will be asked to start a discussion (if they haven't already) on the
-[Slack : Zoin Dev Channel](https://zoin.slack.com/messages/dev/).
+[Discord](https://discordapp.com/invite/4WTD9GN).
 
 The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
@@ -41,7 +41,7 @@ match the project's coding conventions (see `doc/coding.txt`) or are
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/zoinofficial/zoin/tags) are created
+completely stable. [Tags](https://github.com/official-zoin/zoin/tags) are created
 regularly to indicate new official, stable release versions of Zoin.
 
 
@@ -75,7 +75,7 @@ Build
 ----------------------
 1.  Clone the source:
 
-        git clone https://github.com/zoinofficial/zoin
+        git clone https://github.com/official-zoin/zoin
 
 2.  Build Zoin-core:
 
@@ -109,9 +109,3 @@ Copyright
 Copyright (c) 2016-2018 Zoin Developers
 Copyright (c) 2016 Zcoin Developers
 Copyright (c) 2013-2015 Bitcoin Developers
-
-Contributers
----------
-Matthew Tawil
-Vijay Dogra
-
