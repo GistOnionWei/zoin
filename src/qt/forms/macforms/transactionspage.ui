@@ -409,7 +409,7 @@ border:0;
               </property>
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>48</pointsize>
                </font>
               </property>
@@ -434,7 +434,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <widget class="QLabel" name="priceUSD">
                 <property name="font">
                  <font>
-                  <family>ZoinSemiBold</family>
+                  <family>LibercoinSemiBold</family>
                   <pointsize>15</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
@@ -456,7 +456,7 @@ color: white;</string>
                <widget class="QLabel" name="priceBTC">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                   <pointsize>15</pointsize>
                  </font>
                 </property>
@@ -808,7 +808,7 @@ border-style:solid;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinSemiBold</family>
+                   <family>LibercoinSemiBold</family>
                    <pointsize>16</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -824,7 +824,7 @@ border-style:solid;</string>
                   <string notr="true">color: rgb(90, 90, 90);</string>
                  </property>
                  <property name="text">
-                  <string>These are your zoin addresses for sending payments.</string>
+                  <string>These are your libercoin addresses for sending payments.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -1074,7 +1074,7 @@ border:0;
                     <widget class="QLabel" name="label">
                      <property name="font">
                       <font>
-                       <family>ZoinSemiBold</family>
+                       <family>LibercoinSemiBold</family>
                        <pointsize>15</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
@@ -1092,7 +1092,7 @@ border:0;
                     <widget class="QLabel" name="label_4">
                      <property name="font">
                       <font>
-                       <family>ZoinSemiBold</family>
+                       <family>LibercoinSemiBold</family>
                        <pointsize>15</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
@@ -1207,7 +1207,7 @@ border:0;
                </property>
                <property name="font">
                 <font>
-                 <family>ZoinLight</family>
+                 <family>LibercoinLight</family>
                  <pointsize>18</pointsize>
                 </font>
                </property>
@@ -1428,7 +1428,7 @@ border-style:solid;
              <widget class="QPushButton" name="exportButton">
               <property name="font">
                <font>
-                <family>ZoinSemiBold</family>
+                <family>LibercoinSemiBold</family>
                 <pointsize>14</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>

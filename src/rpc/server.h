@@ -192,10 +192,10 @@ extern std::string HelpExampleRpc(const std::string& methodname, const std::stri
 
 extern UniValue getpoolinfo(const UniValue& params, bool fHelp);
 extern UniValue spork(const UniValue& params, bool fHelp);
-extern UniValue zoinode(const UniValue& params, bool fHelp);
-extern UniValue zoinodelist(const UniValue& params, bool fHelp);
-extern UniValue zoinodebroadcast(const UniValue& params, bool fHelp);
-extern UniValue zoinsync(const UniValue& params, bool fHelp);
+extern UniValue libernode(const UniValue& params, bool fHelp);
+extern UniValue libernodelist(const UniValue& params, bool fHelp);
+extern UniValue libernodebroadcast(const UniValue& params, bool fHelp);
+extern UniValue libercoinsync(const UniValue& params, bool fHelp);
 
 extern void EnsureWalletIsUnlocked();
 

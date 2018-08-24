@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About Zoin</string>
+   <string>About Libercoin</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:rgba(255, 255, 255, 255);</string>
@@ -62,7 +62,7 @@ color: white;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../bitcoin.qrc">:/icons/zoin-logo-resize</pixmap>
+        <pixmap resource="../bitcoin.qrc">:/icons/libercoin-logo-resize</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -102,7 +102,7 @@ color: white;
           <string notr="true">color:black;</string>
          </property>
          <property name="text">
-          <string>&lt;b&gt;Zoin&lt;/b&gt; version</string>
+          <string>&lt;b&gt;Libercoin&lt;/b&gt; version</string>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -162,7 +162,7 @@ color: white;
 background-color: rgba(255, 255, 255,0);</string>
        </property>
        <property name="text">
-        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copyright &amp;amp;copy; 2009-YYYY The Bitcoin developers&lt;/p&gt;&lt;p&gt;Copyright &amp;amp;copy; 2015-YYYY The Zoin developers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copyright &amp;amp;copy; 2009-YYYY The Bitcoin developers&lt;/p&gt;&lt;p&gt;Copyright &amp;amp;copy; 2015-YYYY The Libercoin developers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>

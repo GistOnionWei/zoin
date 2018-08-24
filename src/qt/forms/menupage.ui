@@ -310,7 +310,7 @@
   </property>
   <property name="font">
    <font>
-    <family>ZoinLight</family>
+    <family>LibercoinLight</family>
    </font>
   </property>
   <property name="windowTitle">
@@ -405,8 +405,8 @@ border-style: none;</string>
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
-          <normaloff>:/icons/zoin</normaloff>:/icons/zoin</iconset>
+         <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
+          <normaloff>:/icons/libercoin</normaloff>:/icons/libercoin</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -441,7 +441,7 @@ border-style: none;</string>
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <italic>false</italic>
@@ -473,7 +473,7 @@ border:5px solid color: #4a0e95;
       <string>Overview</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_27</normaloff>
        <normalon>:/icons/Exports_60</normalon>:/icons/Exports_27</iconset>
      </property>
@@ -513,7 +513,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -539,7 +539,7 @@ border:5px solid color: #4a0e95;
       <string>Send</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_29</normaloff>
        <normalon>:/icons/Exports_61</normalon>:/icons/Exports_29</iconset>
      </property>
@@ -576,7 +576,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -602,7 +602,7 @@ border:5px solid color: #4a0e95;
       <string>Receive</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_31</normaloff>
        <normalon>:/icons/Exports_63</normalon>:/icons/Exports_31</iconset>
      </property>
@@ -642,7 +642,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -671,7 +671,7 @@ border:5px solid color: #4a0e95;
       <string>Zerocoin</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_33</normaloff>
        <normalon>:/icons/Exports_64</normalon>:/icons/Exports_33</iconset>
      </property>
@@ -708,7 +708,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -734,7 +734,7 @@ border:5px solid color: #4a0e95;
       <string>Transactions</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_35</normaloff>
        <normalon>:/icons/Exports_65</normalon>:/icons/Exports_35</iconset>
      </property>
@@ -771,7 +771,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -797,7 +797,7 @@ border:5px solid color: #4a0e95;
       <string>Addresses</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_37</normaloff>
        <normalon>:/icons/Exports_66</normalon>:/icons/Exports_37</iconset>
      </property>
@@ -813,7 +813,7 @@ border:5px solid color: #4a0e95;
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="Zoinode">
+    <widget class="QPushButton" name="Libernode">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -837,7 +837,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -851,10 +851,10 @@ text-align:left;
 </string>
      </property>
      <property name="text">
-      <string>Zoinode</string>
+      <string>Libernode</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_41</normaloff>:/icons/Exports_41</iconset>
      </property>
      <property name="iconSize">
@@ -890,7 +890,7 @@ text-align:left;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -916,7 +916,7 @@ border:5px solid color: #4a0e95;
       <string>Community</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_39</normaloff>
        <normalon>:/icons/Exports_67</normalon>
        <activeon>:/icons/Exports_67</activeon>
@@ -958,7 +958,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -984,7 +984,7 @@ border:5px solid color: #4a0e95;
       <string>Vote</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+      <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
        <normaloff>:/icons/Exports_43</normaloff>:/icons/Exports_43</iconset>
      </property>
      <property name="iconSize">
@@ -1102,7 +1102,7 @@ border:5px solid color: #4a0e95;
         </property>
         <property name="font">
          <font>
-          <family>ZoinLight</family>
+          <family>LibercoinLight</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -1113,11 +1113,11 @@ text-align:center;
 </string>
         </property>
         <property name="text">
-         <string> Learn more about Zoin</string>
+         <string> Learn more about Libercoin</string>
         </property>
         <property name="icon">
-         <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
-          <normaloff>:/icons/zoin-logo-white</normaloff>:/icons/zoin-logo-white</iconset>
+         <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
+          <normaloff>:/icons/libercoin-logo-white</normaloff>:/icons/libercoin-logo-white</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1136,7 +1136,7 @@ text-align:center;
   </layout>
  </widget>
  <resources>
-  <include location="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc"/>
+  <include location="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -1,11 +1,11 @@
-zoin-qt
+libercoin-qt
 build/*
 !build/.gitkeep
-src/zoind
+src/libercoind
 release/*
 Makefile
 !src/leveldb*/Makefile
-.zoin
+.libercoin
 .deps
 .dirstamp
 .libs
@@ -41,9 +41,9 @@ config.log
 config.status
 configure
 libtool
-src/test_zoin
-test_zoin-qt
+src/test_libercoin
+test_libercoin-qt
 .qmake.stash
-zoin.app/Contents/MacOS/zoin
+libercoin.app/Contents/MacOS/libercoin
 .qmake.stash
 *.stash

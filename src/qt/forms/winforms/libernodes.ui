@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Zoinodes</class>
- <widget class="QWidget" name="Zoinodes">
+ <class>Libernodes</class>
+ <widget class="QWidget" name="Libernodes">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -415,7 +415,7 @@ border:0;
               </property>
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>22</pointsize>
                </font>
               </property>
@@ -427,7 +427,7 @@ border:0;
 background-color: rgba(255, 255, 255,0);</string>
               </property>
               <property name="text">
-               <string>Zoinode</string>
+               <string>Libernode</string>
               </property>
               <property name="indent">
                <number>0</number>
@@ -440,7 +440,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <widget class="QLabel" name="priceUSD">
                 <property name="font">
                  <font>
-                  <family>ZoinMedium</family>
+                  <family>LibercoinMedium</family>
                   <pointsize>12</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
@@ -462,7 +462,7 @@ color: white;</string>
                <widget class="QLabel" name="priceBTC">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                   <pointsize>12</pointsize>
                  </font>
                 </property>
@@ -495,7 +495,7 @@ color: white;</string>
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+               <iconset resource="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                 <normaloff>:/icons/Exports_45</normaloff>:/icons/Exports_45</iconset>
               </property>
               <property name="iconSize">
@@ -786,7 +786,7 @@ border-style:solid;</string>
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+                <iconset resource="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                  <normaloff>:/icons/Exports_47</normaloff>:/icons/Exports_47</iconset>
                </property>
                <property name="iconSize">
@@ -824,7 +824,7 @@ border-style:solid;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinMedium</family>
+                   <family>LibercoinMedium</family>
                    <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -840,7 +840,7 @@ border-style:solid;</string>
                   <string notr="true">color: rgb(90, 90, 90);</string>
                  </property>
                  <property name="text">
-                  <string>Status of your Zoinodes in local wallet can potentially be slightly incorrect.</string>
+                  <string>Status of your Libernodes in local wallet can potentially be slightly incorrect.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -863,7 +863,7 @@ border-style:solid;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinLight</family>
+                   <family>LibercoinLight</family>
                    <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -909,7 +909,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="tabLabel">
               <property name="font">
                <font>
-                <family>ZoinMedium</family>
+                <family>LibercoinMedium</family>
                 <pointsize>13</pointsize>
                </font>
               </property>
@@ -917,7 +917,7 @@ border-style:solid;</string>
                <string notr="true">color: rgb(126, 126, 126);</string>
               </property>
               <property name="text">
-               <string>My Zoinodes</string>
+               <string>My Libernodes</string>
               </property>
              </widget>
             </item>
@@ -925,7 +925,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="autoupdate_label_4">
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -941,7 +941,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="secondsLabel_4">
               <property name="font">
                <font>
-                <family>ZoinMedium</family>
+                <family>LibercoinMedium</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -957,7 +957,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="label">
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -986,7 +986,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="label_count_4">
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -1002,7 +1002,7 @@ border-style:solid;</string>
              <widget class="QLabel" name="countLabel_4">
               <property name="font">
                <font>
-                <family>ZoinMedium</family>
+                <family>LibercoinMedium</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -1047,7 +1047,7 @@ border-style:solid;</string>
               <widget class="QTabWidget" name="tabWidget">
                <property name="font">
                 <font>
-                 <family>ZoinLight</family>
+                 <family>LibercoinLight</family>
                  <pointsize>12</pointsize>
                 </font>
                </property>
@@ -1085,14 +1085,14 @@ height:0;
                <property name="elideMode">
                 <enum>Qt::ElideRight</enum>
                </property>
-               <widget class="QWidget" name="tabMyZoinodes_4">
+               <widget class="QWidget" name="tabMyLibernodes_4">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                  </font>
                 </property>
                 <attribute name="title">
-                 <string>My Zoinodes</string>
+                 <string>My Libernodes</string>
                 </attribute>
                 <layout class="QGridLayout" name="gridLayout_7">
                  <property name="leftMargin">
@@ -1122,7 +1122,7 @@ height:0;
                     <number>0</number>
                    </property>
                    <item>
-                    <widget class="QTableWidget" name="tableWidgetMyZoinodes_4">
+                    <widget class="QTableWidget" name="tableWidgetMyLibernodes_4">
                      <property name="minimumSize">
                       <size>
                        <width>500</width>
@@ -1131,7 +1131,7 @@ height:0;
                      </property>
                      <property name="font">
                       <font>
-                       <family>ZoinLight</family>
+                       <family>LibercoinLight</family>
                        <pointsize>12</pointsize>
                       </font>
                      </property>
@@ -1319,7 +1319,7 @@ QScrollBar::handle {
                        </property>
                        <property name="font">
                         <font>
-                         <family>ZoinRegular</family>
+                         <family>LibercoinRegular</family>
                          <pointsize>11</pointsize>
                         </font>
                        </property>
@@ -1364,7 +1364,7 @@ border: 0;
                        </property>
                        <property name="font">
                         <font>
-                         <family>ZoinRegular</family>
+                         <family>LibercoinRegular</family>
                          <pointsize>11</pointsize>
                         </font>
                        </property>
@@ -1409,7 +1409,7 @@ border: 0;
                        </property>
                        <property name="font">
                         <font>
-                         <family>ZoinRegular</family>
+                         <family>LibercoinRegular</family>
                          <pointsize>11</pointsize>
                         </font>
                        </property>
@@ -1454,7 +1454,7 @@ border: 0;
                        </property>
                        <property name="font">
                         <font>
-                         <family>ZoinRegular</family>
+                         <family>LibercoinRegular</family>
                          <pointsize>11</pointsize>
                         </font>
                        </property>
@@ -1508,14 +1508,14 @@ border: 0;
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="tabAllZoinodes_4">
+               <widget class="QWidget" name="tabAllLibernodes_4">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                  </font>
                 </property>
                 <attribute name="title">
-                 <string>All Zoinodes</string>
+                 <string>All Libernodes</string>
                 </attribute>
                 <layout class="QGridLayout" name="gridLayout_8">
                  <property name="leftMargin">
@@ -1531,7 +1531,7 @@ border: 0;
                   <number>5</number>
                  </property>
                  <item row="1" column="0">
-                  <widget class="QTableWidget" name="tableWidgetZoinodes_4">
+                  <widget class="QTableWidget" name="tableWidgetLibernodes_4">
                    <property name="minimumSize">
                     <size>
                      <width>500</width>
@@ -1540,7 +1540,7 @@ border: 0;
                    </property>
                    <property name="font">
                     <font>
-                     <family>ZoinLight</family>
+                     <family>LibercoinLight</family>
                      <pointsize>12</pointsize>
                     </font>
                    </property>
@@ -1640,7 +1640,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1650,7 +1650,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1660,7 +1660,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1670,7 +1670,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1680,7 +1680,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1690,7 +1690,7 @@ QScrollBar::handle {
                     </property>
                     <property name="font">
                      <font>
-                      <family>ZoinRegular</family>
+                      <family>LibercoinRegular</family>
                      </font>
                     </property>
                    </column>
@@ -1728,7 +1728,7 @@ QScrollBar::handle {
              <widget class="QPushButton" name="swapButton">
               <property name="font">
                <font>
-                <family>ZoinMedium</family>
+                <family>LibercoinMedium</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -1744,11 +1744,11 @@ border:0
 }</string>
               </property>
               <property name="text">
-               <string>All Zoinodes</string>
+               <string>All Libernodes</string>
               </property>
               <property name="icon">
                <iconset resource="../../bitcoin.qrc">
-                <normaloff>:/icons/zoinodes</normaloff>:/icons/zoinodes</iconset>
+                <normaloff>:/icons/libernodes</normaloff>:/icons/libernodes</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -1835,7 +1835,7 @@ border:0
   </layout>
  </widget>
  <resources>
-  <include location="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc"/>
+  <include location="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc"/>
   <include location="../../bitcoin.qrc"/>
  </resources>
  <connections/>

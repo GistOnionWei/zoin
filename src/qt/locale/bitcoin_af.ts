@@ -72,7 +72,7 @@
     </message>
 </context>
 <context>
-    <name>ZoinGUI</name>
+    <name>LibercoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Netwerk-sinkronisasie...</translation>
@@ -158,8 +158,8 @@
         <translation>Besig met herindeksering van blokke op hardeskyf...</translation>
     </message>
     <message>
-        <source>Send coins to a Zoin address</source>
-        <translation>Stuur munte na 'n Zoin adres</translation>
+        <source>Send coins to a Libercoin address</source>
+        <translation>Stuur munte na 'n Libercoin adres</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>Verander die wagwoord wat ek vir kodifikasie van my beursie gebruik</translation>
     </message>
     <message>
-        <source>Zoin</source>
-        <translation>Zoin</translation>
+        <source>Libercoin</source>
+        <translation>Libercoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Kodifiseer die private sleutes wat aan jou beursie gekoppel is.</translation>
     </message>
     <message>
-        <source>Sign messages with your Zoin addresses to prove you own them</source>
-        <translation>Onderteken boodskappe met u Zoin adresse om u eienaarskap te bewys</translation>
+        <source>Sign messages with your Libercoin addresses to prove you own them</source>
+        <translation>Onderteken boodskappe met u Libercoin adresse om u eienaarskap te bewys</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Zoin addresses</source>
-        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde Zoin adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Libercoin addresses</source>
+        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde Libercoin adresse</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -210,8 +210,8 @@
         <translation>Orebalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and zoin: URIs)</source>
-        <translation>Versoek betalings (genereer QR-kodes en zoin: URI's)</translation>
+        <source>Request payments (generates QR codes and libercoin: URIs)</source>
+        <translation>Versoek betalings (genereer QR-kodes en libercoin: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -222,8 +222,8 @@
         <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
     </message>
     <message>
-        <source>Open a zoin: URI or payment request</source>
-        <translation>Skep 'n zoin: URI of betalingsversoek</translation>
+        <source>Open a libercoin: URI or payment request</source>
+        <translation>Skep 'n libercoin: URI of betalingsversoek</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -708,10 +708,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zoin-core</name>
+    <name>libercoin-core</name>
     <message>
-        <source>Zoin Core</source>
-        <translation>Zoin Kern</translation>
+        <source>Libercoin Core</source>
+        <translation>Libercoin Kern</translation>
     </message>
     <message>
         <source>Information</source>

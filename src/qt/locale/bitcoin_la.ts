@@ -52,7 +52,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>ZoinGUI</name>
+    <name>LibercoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signa &amp;nuntium...</translation>
@@ -114,8 +114,8 @@
         <translation>Recreans indicem frustorum in disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Zoin address</source>
-        <translation>Mitte nummos ad inscriptionem Zoin</translation>
+        <source>Send coins to a Libercoin address</source>
+        <translation>Mitte nummos ad inscriptionem Libercoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -138,8 +138,8 @@
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
-        <source>Zoin</source>
-        <translation>Zoin</translation>
+        <source>Libercoin</source>
+        <translation>Libercoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -166,12 +166,12 @@
         <translation>Cifra claves privatas quae cassidili tui sunt</translation>
     </message>
     <message>
-        <source>Sign messages with your Zoin addresses to prove you own them</source>
-        <translation>Signa nuntios cum tuis inscriptionibus Zoin ut demonstres te eas possidere</translation>
+        <source>Sign messages with your Libercoin addresses to prove you own them</source>
+        <translation>Signa nuntios cum tuis inscriptionibus Libercoin ut demonstres te eas possidere</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Zoin addresses</source>
-        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Zoin</translation>
+        <source>Verify messages to ensure they were signed with specified Libercoin addresses</source>
+        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Libercoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -339,8 +339,8 @@
         <translation>Cassidile</translation>
     </message>
     <message>
-        <source>Automatically open the Zoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Aperi per se portam clientis Zoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
+        <source>Automatically open the Libercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aperi per se portam clientis Libercoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -418,8 +418,8 @@
         <translation>Schema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Zoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Zoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Libercoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Libercoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
     </message>
     <message>
         <source>Immature:</source>
@@ -661,8 +661,8 @@
         <translation>Copia signationem in latibulum systematis</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Zoin address</source>
-        <translation>Signa nuntium ut demonstres hanc inscriptionem Zoin a te possessa esse</translation>
+        <source>Sign the message to prove you own this Libercoin address</source>
+        <translation>Signa nuntium ut demonstres hanc inscriptionem Libercoin a te possessa esse</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -681,8 +681,8 @@
         <translation>&amp;Verifica Nuntium</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Zoin address</source>
-        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Zoin</translation>
+        <source>Verify the message to ensure it was signed with the specified Libercoin address</source>
+        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Libercoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -732,7 +732,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zoin-core</name>
+    <name>libercoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Optiones:</translation>
@@ -762,8 +762,8 @@
         <translation>Accipe conexiones externas (praedefinitum: 1 nisi -proxy neque -connect)</translation>
     </message>
     <message>
-        <source>Zoin Core</source>
-        <translation>Zoin Nucleus</translation>
+        <source>Libercoin Core</source>
+        <translation>Libercoin Nucleus</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

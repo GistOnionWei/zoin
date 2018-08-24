@@ -310,7 +310,7 @@
   </property>
   <property name="font">
    <font>
-    <family>ZoinLight</family>
+    <family>LibercoinLight</family>
    </font>
   </property>
   <property name="windowTitle">
@@ -406,7 +406,7 @@ border-style: none;</string>
         </property>
         <property name="icon">
          <iconset resource="../bitcoin.qrc">
-          <normaloff>:/icons/zoin</normaloff>:/icons/zoin</iconset>
+          <normaloff>:/icons/libercoin</normaloff>:/icons/libercoin</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -441,7 +441,7 @@ border-style: none;</string>
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <italic>false</italic>
@@ -513,7 +513,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -576,7 +576,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -639,7 +639,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -705,7 +705,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -768,7 +768,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -810,7 +810,7 @@ border:5px solid color: #4a0e95;
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="Zoinode">
+    <widget class="QPushButton" name="Libernode">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -834,7 +834,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -848,7 +848,7 @@ text-align:left;
 </string>
      </property>
      <property name="text">
-      <string>Zoinode</string>
+      <string>Libernode</string>
      </property>
      <property name="icon">
       <iconset resource="../bitcoin.qrc">
@@ -887,7 +887,7 @@ text-align:left;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -955,7 +955,7 @@ border:5px solid color: #4a0e95;
      </property>
      <property name="font">
       <font>
-       <family>ZoinLight</family>
+       <family>LibercoinLight</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -1099,7 +1099,7 @@ border:5px solid color: #4a0e95;
         </property>
         <property name="font">
          <font>
-          <family>ZoinLight</family>
+          <family>LibercoinLight</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -1110,11 +1110,11 @@ text-align:center;
 </string>
         </property>
         <property name="text">
-         <string> Learn more about Zoin</string>
+         <string> Learn more about Libercoin</string>
         </property>
         <property name="icon">
          <iconset resource="../bitcoin.qrc">
-          <normaloff>:/icons/zoin-logo-white</normaloff>:/icons/zoin-logo-white</iconset>
+          <normaloff>:/icons/libercoin-logo-white</normaloff>:/icons/libercoin-logo-white</iconset>
         </property>
         <property name="iconSize">
          <size>

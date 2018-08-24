@@ -1,4 +1,4 @@
-// Copyright (c) 2017 The Zoin Developers
+// Copyright (c) 2017 The Libercoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,11 +43,11 @@ CommunityPage::~CommunityPage()
 
 
 void CommunityPage::OpenWebsite(){
-    QString website = "http://www.zoinofficial.com/";
+    QString website = "http://www.libercoinofficial.com/";
     QDesktopServices::openUrl(QUrl(website));
 }
 void CommunityPage::OpenReddit(){
-    QString reddit = "https://www.reddit.com/r/zoinofficial/";
+    QString reddit = "https://www.reddit.com/r/libercoinofficial/";
     QDesktopServices::openUrl(QUrl(reddit));
 }
 void CommunityPage::OpenBTCTalk(){
@@ -55,7 +55,7 @@ void CommunityPage::OpenBTCTalk(){
     QDesktopServices::openUrl(QUrl(btc));
 }
 void CommunityPage::OpenTwitter(){
-    QString twitter = "https://twitter.com/zoinofficial";
+    QString twitter = "https://twitter.com/libercoinofficial";
     QDesktopServices::openUrl(QUrl(twitter));
 }
 void CommunityPage::OpenSlack(){
@@ -63,15 +63,15 @@ void CommunityPage::OpenSlack(){
     QDesktopServices::openUrl(QUrl(slack));
 }
 void CommunityPage::OpenFacebook(){
-    QString fb = "https://www.facebook.com/officialzoin";
+    QString fb = "https://www.facebook.com/officiallibercoin";
     QDesktopServices::openUrl(QUrl(fb));
 }
 void CommunityPage::OpenSlackInv(){
-    QString slackInv = "https://t.me/zoinofficial";
+    QString slackInv = "https://t.me/libercoinofficial";
     QDesktopServices::openUrl(QUrl(slackInv));
 }
 void CommunityPage::OpenGit(){
-    QString git = "https://github.com/zoinofficial/zoin";
+    QString git = "https://github.com/libercoinofficial/libercoin";
     QDesktopServices::openUrl(QUrl(git));
 }
 

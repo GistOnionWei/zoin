@@ -39,13 +39,13 @@ const char *SENDCMPCT="sendcmpct";
 const char *CMPCTBLOCK="cmpctblock";
 const char *GETBLOCKTXN="getblocktxn";
 const char *BLOCKTXN="blocktxn";
-    //zoinode
+    //libernode
 const char *TXLOCKVOTE="txlvote";
 const char *SPORK = "spork";
 const char *GETSPORKS = "getsporks";
-const char *ZOINODEPAYMENTVOTE = "mnw";
-const char *ZOINODEPAYMENTBLOCK = "mnwb";
-const char *ZOINODEPAYMENTSYNC = "mnget";
+const char *LIBERNODEPAYMENTVOTE = "mnw";
+const char *LIBERNODEPAYMENTBLOCK = "mnwb";
+const char *LIBERNODEPAYMENTSYNC = "mnget";
 const char *MNANNOUNCE = "mnb";
 const char *MNPING = "mnp";
 const char *DSACCEPT = "dsa";
@@ -93,11 +93,11 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::GETBLOCKTXN,
     NetMsgType::BLOCKTXN,
     
-    //zoinode
+    //libernode
     NetMsgType::TXLOCKREQUEST,
-    NetMsgType::ZOINODEPAYMENTVOTE,
-    NetMsgType::ZOINODEPAYMENTBLOCK,
-    NetMsgType::ZOINODEPAYMENTSYNC,
+    NetMsgType::LIBERNODEPAYMENTVOTE,
+    NetMsgType::LIBERNODEPAYMENTBLOCK,
+    NetMsgType::LIBERNODEPAYMENTSYNC,
     NetMsgType::SPORK,
     NetMsgType::GETSPORKS,
     NetMsgType::MNANNOUNCE,
@@ -218,12 +218,12 @@ const char* CInv::GetCommand() const
         case MSG_TXLOCK_REQUEST:          return NetMsgType::TXLOCKREQUEST;
         case MSG_TXLOCK_VOTE:             return NetMsgType::TXLOCKVOTE;
         case MSG_SPORK:                   return NetMsgType::SPORK;
-        case MSG_ZOINODE_PAYMENT_VOTE:    return NetMsgType::ZOINODEPAYMENTVOTE;
-        case MSG_ZOINODE_PAYMENT_BLOCK:   return NetMsgType::ZOINODEPAYMENTBLOCK;
-        case MSG_ZOINODE_ANNOUNCE:        return NetMsgType::MNANNOUNCE;
-        case MSG_ZOINODE_PING:            return NetMsgType::MNPING;
+        case MSG_LIBERNODE_PAYMENT_VOTE:    return NetMsgType::LIBERNODEPAYMENTVOTE;
+        case MSG_LIBERNODE_PAYMENT_BLOCK:   return NetMsgType::LIBERNODEPAYMENTBLOCK;
+        case MSG_LIBERNODE_ANNOUNCE:        return NetMsgType::MNANNOUNCE;
+        case MSG_LIBERNODE_PING:            return NetMsgType::MNPING;
         case MSG_DSTX:                    return NetMsgType::DSTX;
-        case MSG_ZOINODE_VERIFY:          return NetMsgType::MNVERIFY;
+        case MSG_LIBERNODE_VERIFY:          return NetMsgType::MNVERIFY;
         default:{
             LogPrintf("ERROR - UNKNOWN INV COMMAND");
             return "error";

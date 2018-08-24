@@ -29,8 +29,8 @@
 #include "definition.h"
 #include "crypto/scrypt.h"
 
-#include "zoinode-payments.h"
-#include "zoinode-sync.h"
+#include "libernode-payments.h"
+#include "libernode-sync.h"
 
 #include "crypto/Lyra2Z/Lyra2Z.h"
 #include "crypto/Lyra2Z/Lyra2.h"
@@ -120,7 +120,7 @@ void BlockAssembler::resetBlock()
     // Reserve space for coinbase tx
     nBlockSize = 1000;
     nBlockWeight = 4000;
-    //btzc: update zoin value
+    //btzc: update libercoin value
     nBlockSigOpsCost = 100;
     fIncludeWitness = false;
 
@@ -442,10 +442,10 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
         CAmount blockReward = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
         // Update coinbase transaction with additional info about znode and governance payments,
         // get some info back to pass to getblocktemplate
-        if (nHeight >= chainparams.GetConsensus().nZoinodePaymentsStartBlock) {
-            CAmount zoinodePayment = GetZoinodePayment(nHeight, blockReward);
-            txNew.vout[0].nValue -= zoinodePayment;
-            FillBlockPayments(txNew, nHeight, zoinodePayment, pblock->txoutZoinode, pblock->voutSuperblock);
+        if (nHeight >= chainparams.GetConsensus().nLibernodePaymentsStartBlock) {
+            CAmount libernodePayment = GetLibernodePayment(nHeight, blockReward);
+            txNew.vout[0].nValue -= libernodePayment;
+            FillBlockPayments(txNew, nHeight, libernodePayment, pblock->txoutLibernode, pblock->voutSuperblock);
         }
 
         nLastBlockTx = nBlockTx;
@@ -857,7 +857,7 @@ void BlockAssembler::addPriorityTxs()
         CTransaction tx = mi->GetTx();
         mempool.ApplyDeltas(tx.GetHash(), dPriority, dummy);
         vecPriority.push_back(TxCoinAgePriority(dPriority, mi));
-        //add zoin validation
+        //add libercoin validation
         if (tx.IsCoinBase() || !CheckFinalTx(tx))
             continue;
         if (tx.IsZerocoinSpend()) {
@@ -1006,14 +1006,14 @@ static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainpar
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, chainparams, NULL, pblock, true, NULL, false))
-        return error("ZoinMiner: ProcessNewBlock, block not accepted");
+        return error("LibercoinMiner: ProcessNewBlock, block not accepted");
 
     return true;
 }
 
 void static ZcoinMiner(const CChainParams &chainparams) {
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("zoin-miner");
+    RenameThread("libercoin-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -1025,7 +1025,7 @@ void static ZcoinMiner(const CChainParams &chainparams) {
         // due to some internal error but also if the keypool is empty.
         // In the latter case, already the pointer is NULL.
         if (!coinbaseScript || coinbaseScript->reserveScript.empty()) {
-            LogPrintf("ZoinMiner stop here coinbaseScript=%s, coinbaseScript->reserveScript.empty()=%s\n", coinbaseScript, coinbaseScript->reserveScript.empty());
+            LogPrintf("LibercoinMiner stop here coinbaseScript=%s, coinbaseScript->reserveScript.empty()=%s\n", coinbaseScript, coinbaseScript->reserveScript.empty());
             throw std::runtime_error("No coinbase script available (mining requires a wallet)");
         }
 
@@ -1056,13 +1056,13 @@ void static ZcoinMiner(const CChainParams &chainparams) {
             LogPrintf("CreateNewBlock=%s\n");
             auto_ptr <CBlockTemplate> pblocktemplate(BlockAssembler(Params()).CreateNewBlock(coinbaseScript->reserveScript));
             if (!pblocktemplate.get()) {
-                LogPrintf("Error in ZoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("Error in LibercoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("Running ZoinMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("Running LibercoinMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                       ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -1087,15 +1087,15 @@ void static ZcoinMiner(const CChainParams &chainparams) {
 
                     if (thash.IsNull())
                     {
-                        LogPrintf("ZoinMiner() : Out of memory\n");
-                        throw std::runtime_error("ZoinMiner() : Out of memory");
+                        LogPrintf("LibercoinMiner() : Out of memory\n");
+                        throw std::runtime_error("LibercoinMiner() : Out of memory");
                     }
                     if (UintToArith256(thash) <= hashTarget) {
                         // Found a solution
                         LogPrintf("Found a solution. Hash: %s", UintToArith256(thash).ToString());
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
 //                        CheckWork(pblock, *pwallet, reservekey);
-                        LogPrintf("ZoinMiner:\n");
+                        LogPrintf("LibercoinMiner:\n");
                         LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", UintToArith256(thash).ToString(), hashTarget.ToString());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
@@ -1133,11 +1133,11 @@ void static ZcoinMiner(const CChainParams &chainparams) {
         }
     }
     catch (const boost::thread_interrupted &) {
-        LogPrintf("ZoinMiner terminated\n");
+        LogPrintf("LibercoinMiner terminated\n");
         throw;
     }
     catch (const std::runtime_error &e) {
-        LogPrintf("ZoinMiner runtime error: %s\n", e.what());
+        LogPrintf("LibercoinMiner runtime error: %s\n", e.what());
         return;
     }
 }

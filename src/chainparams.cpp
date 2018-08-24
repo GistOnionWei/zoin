@@ -64,7 +64,7 @@ static CBlock CreateGenesisBlock(const char *pszTimestamp, const CScript &genesi
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount &genesisReward,
                    std::vector<unsigned char> extraNonce) {
 //    const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
-    //btzc: zoin timestamp
+    //btzc: libercoin timestamp
     const char *pszTimestamp = "We don’t operate on leaks - Obama 2 Nov 2016";
     const CScript genesisOutputScript = CScript();
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward,
@@ -124,10 +124,10 @@ public:
 
         
         
-        // zoinode params
-        consensus.nZoinodePaymentsStartBlock = HF_ZOINODE_PAYMENT_START; // not true, but it's ok as long as it's less then nZnodePaymentsIncreaseBlock
-        //consensus.nZoinodePaymentsIncreaseBlock = 260000; // actual historical value
-        //consensus.nZoinodePaymentsIncreasePeriod = 576*30; // 17280 - actual historical value
+        // libernode params
+        consensus.nLibernodePaymentsStartBlock = HF_LIBERNODE_PAYMENT_START; // not true, but it's ok as long as it's less then nZnodePaymentsIncreaseBlock
+        //consensus.nLibernodePaymentsIncreaseBlock = 260000; // actual historical value
+        //consensus.nLibernodePaymentsIncreasePeriod = 576*30; // 17280 - actual historical value
         //consensus.nSuperblockStartBlock = 614820;
         //consensus.nBudgetPaymentsStartBlock = 328008; // actual historical value
         //consensus.nBudgetPaymentsCycleBlocks = 16616; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
@@ -138,7 +138,7 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
         strSporkPubKey = "04549ac134f694c0243f503e8c8a9a986f5de6610049c40b07816809b0d1d06a21b07be27b9bb555931773f62ba6cf35a25fd52f694d4e1106ccd237a7bb899fdd";
-        strZoinodePaymentsPubKey = "04549ac134f694c0243f503e8c8a9a986f5de6610049c40b07816809b0d1d06a21b07be27b9bb555931773f62ba6cf35a25fd52f694d4e1106ccd237a7bb899fdd";
+        strLibernodePaymentsPubKey = "04549ac134f694c0243f503e8c8a9a986f5de6610049c40b07816809b0d1d06a21b07be27b9bb555931773f62ba6cf35a25fd52f694d4e1106ccd237a7bb899fdd";
 
         
         
@@ -147,7 +147,7 @@ public:
              * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
            `  * a large 32-bit integer with any alignment.
              */
-        //btzc: update zoin pchMessage
+        //btzc: update libercoin pchMessage
         pchMessageStart[0] = 0xf5;
         pchMessageStart[1] = 0x03;
         pchMessageStart[2] = 0xa9;
@@ -155,7 +155,7 @@ public:
         nDefaultPort = 8255;
         nPruneAfterHeight = 100000;
         /**
-         * btzc: zoin init genesis block
+         * btzc: libercoin init genesis block
          * nBits = 0x1e0ffff0
          * nTime = 1414776286
          * nNonce = 142392
@@ -171,10 +171,10 @@ public:
 
         genesis = CreateGenesisBlock(1478117691, 104780, 520159231, 2, 0 * COIN, extraNonce);
         //const std::string s = genesis.GetHash().ToString();
-        //std::cout << "zoin new genesis hash: " << genesis.GetHash().ToString() << std::endl;
-        //std::cout << "zoin new hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        //std::cout << "libercoin new genesis hash: " << genesis.GetHash().ToString() << std::endl;
+        //std::cout << "libercoin new hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
         consensus.hashGenesisBlock = genesis.GetHash();
-        //btzc: update main zoin hashGenesisBlock and hashMerkleRoot
+        //btzc: update main libercoin hashGenesisBlock and hashMerkleRoot
 
         assert(consensus.hashGenesisBlock ==
                uint256S("0x23911212a525e3d149fcad6c559c8b17f1e8326a272a75ff9bb315c8d96433ef"));
@@ -269,10 +269,10 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000708f98bf623f02e");
         
         
-        // zoinode params testnet
-        consensus.nZoinodePaymentsStartBlock = HF_ZOINODE_PAYMENT_START; // not true, but it's ok as long as it's less then nZoinodePaymentsIncreaseBlock
-        //consensus.nZoinodePaymentsIncreaseBlock = 46000; // actual historical value
-        //consensus.nZoinodePaymentsIncreasePeriod = 576; // 17280 - actual historical value
+        // libernode params testnet
+        consensus.nLibernodePaymentsStartBlock = HF_LIBERNODE_PAYMENT_START; // not true, but it's ok as long as it's less then nLibernodePaymentsIncreaseBlock
+        //consensus.nLibernodePaymentsIncreaseBlock = 46000; // actual historical value
+        //consensus.nLibernodePaymentsIncreasePeriod = 576; // 17280 - actual historical value
         //consensus.nSuperblockStartBlock = 61000;
         //consensus.nBudgetPaymentsStartBlock = 60000; // actual historical value
         //consensus.nBudgetPaymentsCycleBlocks = 50; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
@@ -282,7 +282,7 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
         strSporkPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
-        strZoinodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
+        strLibernodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 
 
         pchMessageStart[0] = 0xae;
@@ -305,11 +305,11 @@ public:
         extraNonce[3] = 0x00;
 
         genesis = CreateGenesisBlock(1478117690, 177, 536936447, 2, 0 * COIN, extraNonce);
-        std::cout << "zoin test new genesis hash: " << genesis.GetHash().ToString() << std::endl;
-        std::cout << "zoin test new hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        std::cout << "libercoin test new genesis hash: " << genesis.GetHash().ToString() << std::endl;
+        std::cout << "libercoin test new hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        //btzc: update testnet zoin hashGenesisBlock and hashMerkleRoot
+        //btzc: update testnet libercoin hashGenesisBlock and hashMerkleRoot
         assert(consensus.hashGenesisBlock ==
                uint256S("0x6283b7fafca969a803f6f539f5e8fb1a4f8a28fc1ec2106ad35b39354a4647e5"));
         assert(genesis.hashMerkleRoot ==
@@ -317,7 +317,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        // zoin test seeds
+        // libercoin test seeds
         vSeeds.push_back(CDNSSeedData("165.227.98.85", "165.227.98.85", false));
         vSeeds.push_back(CDNSSeedData("174.138.61.220", "174.138.61.220", false));
 
@@ -406,10 +406,10 @@ public:
         extraNonce[3] = 0x00;
         genesis = CreateGenesisBlock(1478117690, 177, 536936447, 2, 0 * COIN, extraNonce);
         consensus.hashGenesisBlock = genesis.GetHash();
-        //btzc: update regtest zoin hashGenesisBlock and hashMerkleRoot
-//        std::cout << "zoin regtest genesisBlock hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-//        std::cout << "zoin regtest hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
-        //btzc: update testnet zoin hashGenesisBlock and hashMerkleRoot
+        //btzc: update regtest libercoin hashGenesisBlock and hashMerkleRoot
+//        std::cout << "libercoin regtest genesisBlock hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+//        std::cout << "libercoin regtest hashMerkleRoot hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        //btzc: update testnet libercoin hashGenesisBlock and hashMerkleRoot
         assert(consensus.hashGenesisBlock ==
                uint256S("0x6283b7fafca969a803f6f539f5e8fb1a4f8a28fc1ec2106ad35b39354a4647e5"));
         assert(genesis.hashMerkleRoot ==

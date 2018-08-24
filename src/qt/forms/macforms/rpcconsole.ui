@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Zoin - Debug window</string>
+   <string>Libercoin - Debug window</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);
@@ -46,7 +46,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Zoin Core</string>
+          <string>Libercoin Core</string>
          </property>
         </widget>
        </item>
@@ -443,7 +443,7 @@
           </font>
          </property>
          <property name="toolTip">
-          <string>Open the zoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
+          <string>Open the libercoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -475,7 +475,7 @@
           </font>
          </property>
          <property name="toolTip">
-          <string>Show the zoin help message to get a list with possible zoin command-line options.</string>
+          <string>Show the libercoin help message to get a list with possible libercoin command-line options.</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>

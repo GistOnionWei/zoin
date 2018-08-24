@@ -1,28 +1,28 @@
-Zoin Core 0.13.2.x
+Libercoin Core 0.13.2.x
 =====================
 
 Setup
 ---------------------
-[Zoin Core] (http://zoinofficial.com/) is the original Zoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Zoin transactions (which is currently several hundreds MBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+[Libercoin Core] (http://libercoinofficial.com/) is the original Libercoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Libercoin transactions (which is currently several hundreds MBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Zoin on your native platform.
+The following are some helpful notes on how to run Libercoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/zoin-qt` (GUI) or
-- `bin/zoind` (headless)
+- `bin/libercoin-qt` (GUI) or
+- `bin/libercoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run zoin-qt.exe.
+Unpack the files into a directory, and then run libercoin-qt.exe.
 
 ### OS X
 
-Drag Zoin-Core to your applications folder, and then run Zoin-Core.
+Drag Libercoin-Core to your applications folder, and then run Libercoin-Core.
 
 ### Need Help?
 
@@ -43,7 +43,7 @@ The following are developer notes on how to build Bitcoin on your native platfor
 
 Development
 ---------------------
-The Zoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Libercoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

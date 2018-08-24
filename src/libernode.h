@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZOINODE_H
-#define ZOINODE_H
+#ifndef LIBERNODE_H
+#define LIBERNODE_H
 
 #include "key.h"
 #include "main.h"
@@ -12,24 +12,24 @@
 #include "timedata.h"
 #include "utiltime.h"
 
-class CZoinode;
-class CZoinodeBroadcast;
-class CZoinodePing;
+class CLibernode;
+class CLibernodeBroadcast;
+class CLibernodePing;
 
-static const int ZOINODE_CHECK_SECONDS               =   5;
-static const int ZOINODE_MIN_MNB_SECONDS             =   5 * 60; //BROADCAST_TIME
-static const int ZOINODE_MIN_MNP_SECONDS             =  10 * 60; //PRE_ENABLE_TIME
-static const int ZOINODE_EXPIRATION_SECONDS          =  65 * 60;
-static const int ZOINODE_WATCHDOG_MAX_SECONDS        = 120 * 60;
-static const int ZOINODE_NEW_START_REQUIRED_SECONDS  = 180 * 60;
-static const int ZOINODE_COIN_REQUIRED  = 25000;
+static const int LIBERNODE_CHECK_SECONDS               =   5;
+static const int LIBERNODE_MIN_MNB_SECONDS             =   5 * 60; //BROADCAST_TIME
+static const int LIBERNODE_MIN_MNP_SECONDS             =  10 * 60; //PRE_ENABLE_TIME
+static const int LIBERNODE_EXPIRATION_SECONDS          =  65 * 60;
+static const int LIBERNODE_WATCHDOG_MAX_SECONDS        = 120 * 60;
+static const int LIBERNODE_NEW_START_REQUIRED_SECONDS  = 180 * 60;
+static const int LIBERNODE_COIN_REQUIRED  = 25000;
 
-static const int ZOINODE_POSE_BAN_MAX_SCORE          = 5;
+static const int LIBERNODE_POSE_BAN_MAX_SCORE          = 5;
 //
-// The Zoinode Ping Class : Contains a different serialize method for sending pings from zoinodes throughout the network
+// The Libernode Ping Class : Contains a different serialize method for sending pings from libernodes throughout the network
 //
 
-class CZoinodePing
+class CLibernodePing
 {
 public:
     CTxIn vin;
@@ -38,14 +38,14 @@ public:
     std::vector<unsigned char> vchSig;
     //removed stop
 
-    CZoinodePing() :
+    CLibernodePing() :
         vin(),
         blockHash(),
         sigTime(0),
         vchSig()
         {}
 
-    CZoinodePing(CTxIn& vinNew);
+    CLibernodePing(CTxIn& vinNew);
 
     ADD_SERIALIZE_METHODS;
 
@@ -57,7 +57,7 @@ public:
         READWRITE(vchSig);
     }
 
-    void swap(CZoinodePing& first, CZoinodePing& second) // nothrow
+    void swap(CLibernodePing& first, CLibernodePing& second) // nothrow
     {
         // enable ADL (not necessary in our case, but good practice)
         using std::swap;
@@ -78,37 +78,37 @@ public:
         return ss.GetHash();
     }
 
-    bool IsExpired() { return GetTime() - sigTime > ZOINODE_NEW_START_REQUIRED_SECONDS; }
+    bool IsExpired() { return GetTime() - sigTime > LIBERNODE_NEW_START_REQUIRED_SECONDS; }
 
-    bool Sign(CKey& keyZoinode, CPubKey& pubKeyZoinode);
-    bool CheckSignature(CPubKey& pubKeyZoinode, int &nDos);
+    bool Sign(CKey& keyLibernode, CPubKey& pubKeyLibernode);
+    bool CheckSignature(CPubKey& pubKeyLibernode, int &nDos);
     bool SimpleCheck(int& nDos);
-    bool CheckAndUpdate(CZoinode* pmn, bool fFromNewBroadcast, int& nDos);
+    bool CheckAndUpdate(CLibernode* pmn, bool fFromNewBroadcast, int& nDos);
     void Relay();
 
-    CZoinodePing& operator=(CZoinodePing from)
+    CLibernodePing& operator=(CLibernodePing from)
     {
         swap(*this, from);
         return *this;
     }
-    friend bool operator==(const CZoinodePing& a, const CZoinodePing& b)
+    friend bool operator==(const CLibernodePing& a, const CLibernodePing& b)
     {
         return a.vin == b.vin && a.blockHash == b.blockHash;
     }
-    friend bool operator!=(const CZoinodePing& a, const CZoinodePing& b)
+    friend bool operator!=(const CLibernodePing& a, const CLibernodePing& b)
     {
         return !(a == b);
     }
 
 };
 
-struct zoinode_info_t
+struct libernode_info_t
 {
-    zoinode_info_t()
+    libernode_info_t()
         : vin(),
           addr(),
           pubKeyCollateralAddress(),
-          pubKeyZoinode(),
+          pubKeyLibernode(),
           sigTime(0),
           nLastDsq(0),
           nTimeLastChecked(0),
@@ -123,7 +123,7 @@ struct zoinode_info_t
     CTxIn vin;
     CService addr;
     CPubKey pubKeyCollateralAddress;
-    CPubKey pubKeyZoinode;
+    CPubKey pubKeyLibernode;
     int64_t sigTime; //mnb message time
     int64_t nLastDsq; //the dsq count from the last dsq broadcast of this node
     int64_t nTimeLastChecked;
@@ -136,10 +136,10 @@ struct zoinode_info_t
 };
 
 //
-// The Zoinode Class. For managing the Darksend process. It contains the input of the 1000DRK, signature to prove
+// The Libernode Class. For managing the Darksend process. It contains the input of the 1000DRK, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
-class CZoinode
+class CLibernode
 {
 private:
     // critical section to protect the inner data structures
@@ -147,21 +147,21 @@ private:
 
 public:
     enum state {
-        ZOINODE_PRE_ENABLED,
-        ZOINODE_ENABLED,
-        ZOINODE_EXPIRED,
-        ZOINODE_OUTPOINT_SPENT,
-        ZOINODE_UPDATE_REQUIRED,
-        ZOINODE_WATCHDOG_EXPIRED,
-        ZOINODE_NEW_START_REQUIRED,
-        ZOINODE_POSE_BAN
+        LIBERNODE_PRE_ENABLED,
+        LIBERNODE_ENABLED,
+        LIBERNODE_EXPIRED,
+        LIBERNODE_OUTPOINT_SPENT,
+        LIBERNODE_UPDATE_REQUIRED,
+        LIBERNODE_WATCHDOG_EXPIRED,
+        LIBERNODE_NEW_START_REQUIRED,
+        LIBERNODE_POSE_BAN
     };
 
     CTxIn vin;
     CService addr;
     CPubKey pubKeyCollateralAddress;
-    CPubKey pubKeyZoinode;
-    CZoinodePing lastPing;
+    CPubKey pubKeyLibernode;
+    CLibernodePing lastPing;
     std::vector<unsigned char> vchSig;
     int64_t sigTime; //mnb message time
     int64_t nLastDsq; //the dsq count from the last dsq broadcast of this node
@@ -177,13 +177,13 @@ public:
     bool fAllowMixingTx;
     bool fUnitTest;
 
-    // KEEP TRACK OF GOVERNANCE ITEMS EACH ZOINODE HAS VOTE UPON FOR RECALCULATION
+    // KEEP TRACK OF GOVERNANCE ITEMS EACH LIBERNODE HAS VOTE UPON FOR RECALCULATION
     std::map<uint256, int> mapGovernanceObjectsVotedOn;
 
-    CZoinode();
-    CZoinode(const CZoinode& other);
-    CZoinode(const CZoinodeBroadcast& mnb);
-    CZoinode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyZoinodeNew, int nProtocolVersionIn);
+    CLibernode();
+    CLibernode(const CLibernode& other);
+    CLibernode(const CLibernodeBroadcast& mnb);
+    CLibernode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyLibernodeNew, int nProtocolVersionIn);
 
     ADD_SERIALIZE_METHODS;
 
@@ -193,7 +193,7 @@ public:
         READWRITE(vin);
         READWRITE(addr);
         READWRITE(pubKeyCollateralAddress);
-        READWRITE(pubKeyZoinode);
+        READWRITE(pubKeyLibernode);
         READWRITE(lastPing);
         READWRITE(vchSig);
         READWRITE(sigTime);
@@ -212,7 +212,7 @@ public:
         READWRITE(mapGovernanceObjectsVotedOn);
     }
 
-    void swap(CZoinode& first, CZoinode& second) // nothrow
+    void swap(CLibernode& first, CLibernode& second) // nothrow
     {
         // enable ADL (not necessary in our case, but good practice)
         using std::swap;
@@ -222,7 +222,7 @@ public:
         swap(first.vin, second.vin);
         swap(first.addr, second.addr);
         swap(first.pubKeyCollateralAddress, second.pubKeyCollateralAddress);
-        swap(first.pubKeyZoinode, second.pubKeyZoinode);
+        swap(first.pubKeyLibernode, second.pubKeyLibernode);
         swap(first.lastPing, second.lastPing);
         swap(first.vchSig, second.vchSig);
         swap(first.sigTime, second.sigTime);
@@ -244,7 +244,7 @@ public:
     // CALCULATE A RANK AGAINST OF GIVEN BLOCK
     arith_uint256 CalculateScore(const uint256& blockHash);
 
-    bool UpdateFromNewBroadcast(CZoinodeBroadcast& mnb);
+    bool UpdateFromNewBroadcast(CLibernodeBroadcast& mnb);
 
     void Check(bool fForce = false);
 
@@ -252,7 +252,7 @@ public:
 
     bool IsPingedWithin(int nSeconds, int64_t nTimeToCheckAt = -1)
     {
-        if(lastPing == CZoinodePing()) return false;
+        if(lastPing == CLibernodePing()) return false;
 
         if(nTimeToCheckAt == -1) {
             nTimeToCheckAt = GetAdjustedTime();
@@ -260,23 +260,23 @@ public:
         return nTimeToCheckAt - lastPing.sigTime < nSeconds;
     }
 
-    bool IsEnabled() { return nActiveState == ZOINODE_ENABLED; }
-    bool IsPreEnabled() { return nActiveState == ZOINODE_PRE_ENABLED; }
-    bool IsPoSeBanned() { return nActiveState == ZOINODE_POSE_BAN; }
+    bool IsEnabled() { return nActiveState == LIBERNODE_ENABLED; }
+    bool IsPreEnabled() { return nActiveState == LIBERNODE_PRE_ENABLED; }
+    bool IsPoSeBanned() { return nActiveState == LIBERNODE_POSE_BAN; }
     // NOTE: this one relies on nPoSeBanScore, not on nActiveState as everything else here
-    bool IsPoSeVerified() { return nPoSeBanScore <= -ZOINODE_POSE_BAN_MAX_SCORE; }
-    bool IsExpired() { return nActiveState == ZOINODE_EXPIRED; }
-    bool IsOutpointSpent() { return nActiveState == ZOINODE_OUTPOINT_SPENT; }
-    bool IsUpdateRequired() { return nActiveState == ZOINODE_UPDATE_REQUIRED; }
-    bool IsWatchdogExpired() { return nActiveState == ZOINODE_WATCHDOG_EXPIRED; }
-    bool IsNewStartRequired() { return nActiveState == ZOINODE_NEW_START_REQUIRED; }
+    bool IsPoSeVerified() { return nPoSeBanScore <= -LIBERNODE_POSE_BAN_MAX_SCORE; }
+    bool IsExpired() { return nActiveState == LIBERNODE_EXPIRED; }
+    bool IsOutpointSpent() { return nActiveState == LIBERNODE_OUTPOINT_SPENT; }
+    bool IsUpdateRequired() { return nActiveState == LIBERNODE_UPDATE_REQUIRED; }
+    bool IsWatchdogExpired() { return nActiveState == LIBERNODE_WATCHDOG_EXPIRED; }
+    bool IsNewStartRequired() { return nActiveState == LIBERNODE_NEW_START_REQUIRED; }
 
     static bool IsValidStateForAutoStart(int nActiveStateIn)
     {
-        return  nActiveStateIn == ZOINODE_ENABLED ||
-                nActiveStateIn == ZOINODE_PRE_ENABLED ||
-                nActiveStateIn == ZOINODE_EXPIRED ||
-                nActiveStateIn == ZOINODE_WATCHDOG_EXPIRED;
+        return  nActiveStateIn == LIBERNODE_ENABLED ||
+                nActiveStateIn == LIBERNODE_PRE_ENABLED ||
+                nActiveStateIn == LIBERNODE_EXPIRED ||
+                nActiveStateIn == LIBERNODE_WATCHDOG_EXPIRED;
     }
 
     bool IsValidForPayment();
@@ -284,10 +284,10 @@ public:
     bool IsValidNetAddr();
     static bool IsValidNetAddr(CService addrIn);
 
-    void IncreasePoSeBanScore() { if(nPoSeBanScore < ZOINODE_POSE_BAN_MAX_SCORE) nPoSeBanScore++; }
-    void DecreasePoSeBanScore() { if(nPoSeBanScore > -ZOINODE_POSE_BAN_MAX_SCORE) nPoSeBanScore--; }
+    void IncreasePoSeBanScore() { if(nPoSeBanScore < LIBERNODE_POSE_BAN_MAX_SCORE) nPoSeBanScore++; }
+    void DecreasePoSeBanScore() { if(nPoSeBanScore > -LIBERNODE_POSE_BAN_MAX_SCORE) nPoSeBanScore--; }
 
-    zoinode_info_t GetInfo();
+    libernode_info_t GetInfo();
 
     static std::string StateToString(int nStateIn);
     std::string GetStateString() const;
@@ -309,16 +309,16 @@ public:
 
     void UpdateWatchdogVoteTime();
 
-    CZoinode& operator=(CZoinode from)
+    CLibernode& operator=(CLibernode from)
     {
         swap(*this, from);
         return *this;
     }
-    friend bool operator==(const CZoinode& a, const CZoinode& b)
+    friend bool operator==(const CLibernode& a, const CLibernode& b)
     {
         return a.vin == b.vin;
     }
-    friend bool operator!=(const CZoinode& a, const CZoinode& b)
+    friend bool operator!=(const CLibernode& a, const CLibernode& b)
     {
         return !(a.vin == b.vin);
     }
@@ -327,19 +327,19 @@ public:
 
 
 //
-// The Zoinode Broadcast Class : Contains a different serialize method for sending zoinodes through the network
+// The Libernode Broadcast Class : Contains a different serialize method for sending libernodes through the network
 //
 
-class CZoinodeBroadcast : public CZoinode
+class CLibernodeBroadcast : public CLibernode
 {
 public:
 
     bool fRecovery;
 
-    CZoinodeBroadcast() : CZoinode(), fRecovery(false) {}
-    CZoinodeBroadcast(const CZoinode& mn) : CZoinode(mn), fRecovery(false) {}
-    CZoinodeBroadcast(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyZoinodeNew, int nProtocolVersionIn) :
-        CZoinode(addrNew, vinNew, pubKeyCollateralAddressNew, pubKeyZoinodeNew, nProtocolVersionIn), fRecovery(false) {}
+    CLibernodeBroadcast() : CLibernode(), fRecovery(false) {}
+    CLibernodeBroadcast(const CLibernode& mn) : CLibernode(mn), fRecovery(false) {}
+    CLibernodeBroadcast(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyLibernodeNew, int nProtocolVersionIn) :
+        CLibernode(addrNew, vinNew, pubKeyCollateralAddressNew, pubKeyLibernodeNew, nProtocolVersionIn), fRecovery(false) {}
 
     ADD_SERIALIZE_METHODS;
 
@@ -348,7 +348,7 @@ public:
         READWRITE(vin);
         READWRITE(addr);
         READWRITE(pubKeyCollateralAddress);
-        READWRITE(pubKeyZoinode);
+        READWRITE(pubKeyLibernode);
         READWRITE(vchSig);
         READWRITE(sigTime);
         READWRITE(nProtocolVersion);
@@ -364,20 +364,20 @@ public:
         return ss.GetHash();
     }
 
-    /// Create Zoinode broadcast, needs to be relayed manually after that
-    static bool Create(CTxIn vin, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyZoinodeNew, CPubKey pubKeyZoinodeNew, std::string &strErrorRet, CZoinodeBroadcast &mnbRet);
-    static bool Create(std::string strService, std::string strKey, std::string strTxHash, std::string strOutputIndex, std::string& strErrorRet, CZoinodeBroadcast &mnbRet, bool fOffline = false);
+    /// Create Libernode broadcast, needs to be relayed manually after that
+    static bool Create(CTxIn vin, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyLibernodeNew, CPubKey pubKeyLibernodeNew, std::string &strErrorRet, CLibernodeBroadcast &mnbRet);
+    static bool Create(std::string strService, std::string strKey, std::string strTxHash, std::string strOutputIndex, std::string& strErrorRet, CLibernodeBroadcast &mnbRet, bool fOffline = false);
 
     bool SimpleCheck(int& nDos);
-    bool Update(CZoinode* pmn, int& nDos);
+    bool Update(CLibernode* pmn, int& nDos);
     bool CheckOutpoint(int& nDos);
 
     bool Sign(CKey& keyCollateralAddress);
     bool CheckSignature(int& nDos);
-    void RelayZoiNode();
+    void RelayLiberNode();
 };
 
-class CZoinodeVerification
+class CLibernodeVerification
 {
 public:
     CTxIn vin1;
@@ -388,7 +388,7 @@ public:
     std::vector<unsigned char> vchSig1;
     std::vector<unsigned char> vchSig2;
 
-    CZoinodeVerification() :
+    CLibernodeVerification() :
         vin1(),
         vin2(),
         addr(),
@@ -398,7 +398,7 @@ public:
         vchSig2()
         {}
 
-    CZoinodeVerification(CService addr, int nonce, int nBlockHeight) :
+    CLibernodeVerification(CService addr, int nonce, int nBlockHeight) :
         vin1(),
         vin2(),
         addr(addr),
@@ -434,7 +434,7 @@ public:
 
     void Relay() const
     {
-        CInv inv(MSG_ZOINODE_VERIFY, GetHash());
+        CInv inv(MSG_LIBERNODE_VERIFY, GetHash());
         RelayInv(inv);
     }
 };

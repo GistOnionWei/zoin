@@ -27,8 +27,8 @@
 #include "validation.h"
 #include "darksend.h"
 #include "instantx.h"
-#include "zoinode.h"
-#include "zoinode-sync.h"
+#include "libernode.h"
+#include "libernode-sync.h"
 #include "zerocoin.h"
 //#include "random.h"
 
@@ -2059,14 +2059,14 @@ void CWallet::AvailableCoins(vector <COutput> &vCoins, bool fOnlyConfirmed, cons
                 if (nCoinType == ONLY_DENOMINATED) {
                     found = IsDenominatedAmount(pcoin->vout[i].nValue);
                 } else if (nCoinType == ONLY_NOT1000IFMN) {
-                    found = !(fZoiNode && pcoin->vout[i].nValue == ZOINODE_COIN_REQUIRED * COIN);
+                    found = !(fLiberNode && pcoin->vout[i].nValue == LIBERNODE_COIN_REQUIRED * COIN);
                 } else if (nCoinType == ONLY_NONDENOMINATED_NOT1000IFMN) {
                     if (IsCollateralAmount(pcoin->vout[i].nValue)) continue; // do not use collateral amounts
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
-                    if (found && fZoiNode) found = pcoin->vout[i].nValue != ZOINODE_COIN_REQUIRED * COIN; // do not use Hot MN funds
+                    if (found && fLiberNode) found = pcoin->vout[i].nValue != LIBERNODE_COIN_REQUIRED * COIN; // do not use Hot MN funds
                 } else if (nCoinType == ONLY_1000) {
 
-                    found = pcoin->vout[i].nValue == ZOINODE_COIN_REQUIRED * COIN;
+                    found = pcoin->vout[i].nValue == LIBERNODE_COIN_REQUIRED * COIN;
                 } else if (nCoinType == ONLY_PRIVATESEND_COLLATERAL) {
                     found = IsCollateralAmount(pcoin->vout[i].nValue);
                 } else {
@@ -2117,7 +2117,7 @@ bool CWallet::SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector 
         if (out.tx->vout[out.i].nValue < nValueMin / 10) continue;
         //do not allow collaterals to be selected
         if (IsCollateralAmount(out.tx->vout[out.i].nValue)) continue;
-        if (fZoiNode && out.tx->vout[out.i].nValue == ZOINODE_COIN_REQUIRED * COIN) continue; //zoinode input
+        if (fLiberNode && out.tx->vout[out.i].nValue == LIBERNODE_COIN_REQUIRED * COIN) continue; //libernode input
 
         if (nValueRet + out.tx->vout[out.i].nValue <= nValueMax) {
             CTxIn txin = CTxIn(out.tx->GetHash(), out.i);
@@ -2135,7 +2135,7 @@ bool CWallet::SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector 
     return nValueRet >= nValueMin;
 }
 
-// zoinode
+// libernode
 bool CWallet::GetCollateralTxIn(CTxIn& txinRet, CAmount& nValueRet) const
 {
     vector<COutput> vCoins;
@@ -2156,7 +2156,7 @@ bool CWallet::GetCollateralTxIn(CTxIn& txinRet, CAmount& nValueRet) const
     return false;
 }
 
-bool CWallet::GetZoinodeVinAndKeys(CTxIn &txinRet, CPubKey &pubKeyRet, CKey &keyRet, std::string strTxHash,
+bool CWallet::GetLibernodeVinAndKeys(CTxIn &txinRet, CPubKey &pubKeyRet, CKey &keyRet, std::string strTxHash,
                                  std::string strOutputIndex) {
     // wait for reindex and/or import to finish
     if (fImporting || fReindex) return false;
@@ -2165,7 +2165,7 @@ bool CWallet::GetZoinodeVinAndKeys(CTxIn &txinRet, CPubKey &pubKeyRet, CKey &key
     std::vector <COutput> vPossibleCoins;
     AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_1000);
     if (vPossibleCoins.empty()) {
-        LogPrintf("CWallet::GetZoinodeVinAndKeys -- Could not locate any valid zoinode vin\n");
+        LogPrintf("CWallet::GetLibernodeVinAndKeys -- Could not locate any valid libernode vin\n");
         return false;
     }
 
@@ -2180,7 +2180,7 @@ bool CWallet::GetZoinodeVinAndKeys(CTxIn &txinRet, CPubKey &pubKeyRet, CKey &key
     if (out.tx->GetHash() == txHash && out.i == nOutputIndex) // found it!
         return GetVinAndKeysFromOutput(out, txinRet, pubKeyRet, keyRet);
 
-    LogPrintf("CWallet::GetZoinodeVinAndKeys -- Could not locate specified zoinode vin\n");
+    LogPrintf("CWallet::GetLibernodeVinAndKeys -- Could not locate specified libernode vin\n");
     return false;
 }
 
@@ -2609,7 +2609,7 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, CAmount nValueMin, CAmount 
     InsecureRand insecureRand;
     BOOST_FOREACH(const COutput &out, vCoins)
     {
-        // zoinode-like input should not be selected by AvailableCoins now anyway
+        // libernode-like input should not be selected by AvailableCoins now anyway
         //if(out.tx->vout[out.i].nValue == 1000*COIN) continue;
         if (nValueRet + out.tx->vout[out.i].nValue <= nValueMax) {
 
@@ -2717,7 +2717,7 @@ bool CWallet::SelectCoinsGrouppedByAddresses(std::vector <CompactTallyItem> &vec
             if (fAnonymizable) {
                 // ignore collaterals
                 if (IsCollateralAmount(wtx.vout[i].nValue)) continue;
-                if (fZoiNode && wtx.vout[i].nValue == ZOINODE_COIN_REQUIRED * COIN) continue;
+                if (fLiberNode && wtx.vout[i].nValue == LIBERNODE_COIN_REQUIRED * COIN) continue;
                 // ignore outputs that are 10 times smaller then the smallest denomination
                 // otherwise they will just lead to higher fee / lower priority
                 if (wtx.vout[i].nValue <= vecPrivateSendDenominations.back() / 10) continue;
@@ -2863,9 +2863,9 @@ bool CWallet::CreateTransaction(const vector <CRecipient> &vecSend, CWalletTx &w
                 CAmount nValueIn = 0;
                 if (!SelectCoins(vAvailableCoins, nValueToSelect, setCoins, nValueIn, coinControl)) {
                     if (nCoinType == ONLY_NOT1000IFMN) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 25000 ZOI.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 25000 LBR.");
                     } else if (nCoinType == ONLY_NONDENOMINATED_NOT1000IFMN) {
-                        strFailReason = _("Unable to locate enough PrivateSend non-denominated funds for this transaction that are not equal 25000 ZOI.");
+                        strFailReason = _("Unable to locate enough PrivateSend non-denominated funds for this transaction that are not equal 25000 LBR.");
                     } else if (nCoinType == ONLY_DENOMINATED) {
                         strFailReason = _("Unable to locate enough PrivateSend denominated funds for this transaction.");
                         strFailReason += _("PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");
@@ -3540,7 +3540,7 @@ bool CWallet::CreateZerocoinMintTransaction(const vector <CRecipient> &vecSend, 
                         break;
                 }
                 int64_t nPayFee = payTxFee.GetFeePerK() * (1 + (int64_t) GetTransactionWeight(txNew) / 1000);
-//                bool fAllowFree = false;					// No free TXs in ZOI
+//                bool fAllowFree = false;					// No free TXs in LBR
                 int64_t nMinFee = wtxNew.GetMinFee(1, false, GMF_SEND);
 
                 int64_t nFeeNeeded = nPayFee;
@@ -3897,7 +3897,7 @@ bool CWallet::CommitZerocoinSpendTransaction(CWalletTx &wtxNew, CReserveKey &res
 string CWallet::MintZerocoin(CScript pubCoin, int64_t nValue, CWalletTx &wtxNew, bool fAskFee) {
     // Do not allow mint to take place until fully synced
     // Temporary measure: we can remove this limitation when well after spend v1.5 HF block
-    if (fImporting || fReindex || !zoinodeSync.IsBlockchainSynced())
+    if (fImporting || fReindex || !libernodeSync.IsBlockchainSynced())
         return _("Not fully synced yet");
 
     LogPrintf("MintZerocoin: value = %s\n", nValue);
@@ -3966,7 +3966,7 @@ string CWallet::SpendZerocoin(int64_t nValue, libzerocoin::CoinDenomination deno
 
     // Do not allow spend to take place until fully synced
     // Temporary measure: we can remove this limitation when well after spend v1.5 HF block
-    if (fImporting || fReindex || !zoinodeSync.IsBlockchainSynced())
+    if (fImporting || fReindex || !libernodeSync.IsBlockchainSynced())
         return _("Not fully synced yet");
 
     CReserveKey reservekey(this);

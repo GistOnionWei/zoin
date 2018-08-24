@@ -350,9 +350,9 @@ bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
     return QWidget::eventFilter(obj, event);
 }
 
-void RPCConsole::setzoinodeCount(const QString &strzoinodes)
+void RPCConsole::setlibernodeCount(const QString &strlibernodes)
 {
-    ui->zoinodeCount->setText(strzoinodes);
+    ui->libernodeCount->setText(strlibernodes);
 }
 
 
@@ -368,8 +368,8 @@ void RPCConsole::setClientModel(ClientModel *model)
         setNumBlocks(model->getNumBlocks(), model->getLastBlockDate(), model->getVerificationProgress(NULL), false);
         connect(model, SIGNAL(numBlocksChanged(int,QDateTime,double,bool)), this, SLOT(setNumBlocks(int,QDateTime,double,bool)));
 
-        setzoinodeCount(model->getzoinodeCountString());
-        connect(model, SIGNAL(strzoinodesChanged(QString)), this, SLOT(setzoinodeCount(QString)));
+        setlibernodeCount(model->getlibernodeCountString());
+        connect(model, SIGNAL(strlibernodesChanged(QString)), this, SLOT(setlibernodeCount(QString)));
 
         updateTrafficStats(model->getTotalBytesRecv(), model->getTotalBytesSent());
         connect(model, SIGNAL(bytesChanged(quint64,quint64)), this, SLOT(updateTrafficStats(quint64, quint64)));

@@ -6,7 +6,7 @@
 #define BITCOIN_QT_WALLETVIEW_H
 
 #include "amount.h"
-#include "zoinodes.h"
+#include "libernodes.h"
 #include "votingpage.h"
 #include <QStackedWidget>
 #include <QProgressBar>
@@ -82,7 +82,7 @@ private:
     ReceiveCoinsDialog *receiveCoinsPage;
     AddressBookPage *addressBookPage;
     SendCoinsDialog *sendCoinsPage;
-    Zoinodes *zoinodePage;
+    Libernodes *libernodePage;
     VotingPage *votingPage;
 
     //AddressBookPage *usedSendingAddressesPage;
@@ -102,7 +102,7 @@ private:
     BitcoinGUI *gui;
 
 public Q_SLOTS:
-    void gotoZoinodePage();
+    void gotoLibernodePage();
     /** Switch to community (social) page */
     void gotoCommunityPage();
     /** Switch to learn more page */

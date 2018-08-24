@@ -1,5 +1,5 @@
-#ifndef ZOINODES_H
-#define ZOINODES_H
+#ifndef LIBERNODES_H
+#define LIBERNODES_H
 
 #include "primitives/transaction.h"
 #include "platformstyle.h"
@@ -18,19 +18,19 @@
 #define MASTERNODELIST_FILTER_COOLDOWN_SECONDS            3
 
 namespace Ui {
-    class Zoinodes;
+    class Libernodes;
 }
 
 class ClientModel;
 class WalletModel;
 
-class Zoinodes : public QWidget
+class Libernodes : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Zoinodes(const PlatformStyle *platformStyle, QWidget *parent = 0);
-    ~Zoinodes();
+    explicit Libernodes(const PlatformStyle *platformStyle, QWidget *parent = 0);
+    ~Libernodes();
 
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
@@ -47,7 +47,7 @@ private:
     bool fFilterUpdated;
 
 public Q_SLOTS:
-    void updateMyZoinodeInfo(QString strAlias, QString strAddr, const COutPoint& outpoint);
+    void updateMyLibernodeInfo(QString strAlias, QString strAddr, const COutPoint& outpoint);
     void updateMyNodeList(bool fForce = false);
     void updateNodeList();
 
@@ -57,14 +57,14 @@ Q_SIGNALS:
 
 private:
     QTimer *timer;
-    Ui::Zoinodes *ui;
+    Ui::Libernodes *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
 
-    // Protects tableWidgetZoinodes
+    // Protects tableWidgetLibernodes
     CCriticalSection cs_mnlist;
 
-    // Protects tableWidgetMyZoinodes
+    // Protects tableWidgetMyLibernodes
     CCriticalSection cs_mymnlist;
 
     QString strCurrentFilter;
@@ -75,10 +75,10 @@ private Q_SLOTS:
     void on_startButton_clicked();
     void on_startAllButton_clicked();
     void on_startMissingButton_clicked();
-    void on_tableWidgetMyZoinodes_itemSelectionChanged();
+    void on_tableWidgetMyLibernodes_itemSelectionChanged();
     void on_UpdateButton_clicked();
     void on_swapButton_clicked();
 
 };
 
-#endif // ZOINODES_H
+#endif // LIBERNODES_H

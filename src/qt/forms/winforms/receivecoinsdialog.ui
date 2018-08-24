@@ -415,7 +415,7 @@ border:0;
               </property>
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>22</pointsize>
                </font>
               </property>
@@ -440,7 +440,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <widget class="QLabel" name="priceUSD">
                 <property name="font">
                  <font>
-                  <family>ZoinMedium</family>
+                  <family>LibercoinMedium</family>
                   <pointsize>12</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
@@ -462,7 +462,7 @@ color: white;</string>
                <widget class="QLabel" name="priceBTC">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                   <pointsize>12</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
@@ -497,7 +497,7 @@ color: white;</string>
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+               <iconset resource="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                 <normaloff>:/icons/Exports_45</normaloff>:/icons/Exports_45</iconset>
               </property>
               <property name="iconSize">
@@ -788,7 +788,7 @@ border-style:solid;</string>
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+                <iconset resource="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                  <normaloff>:/icons/Exports_47</normaloff>:/icons/Exports_47</iconset>
                </property>
                <property name="iconSize">
@@ -826,7 +826,7 @@ border-style:solid;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinMedium</family>
+                   <family>LibercoinMedium</family>
                    <pointsize>12</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
@@ -842,7 +842,7 @@ border-style:solid;</string>
                   <string notr="true">color: rgb(90, 90, 90);</string>
                  </property>
                  <property name="text">
-                  <string>These are your zoin addresses for receiving payments.</string>
+                  <string>These are your libercoin addresses for receiving payments.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -865,7 +865,7 @@ border-style:solid;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinLight</family>
+                   <family>LibercoinLight</family>
                    <pointsize>12</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
@@ -1120,7 +1120,7 @@ border:0;</string>
                </property>
                <property name="font">
                 <font>
-                 <family>ZoinRegular</family>
+                 <family>LibercoinRegular</family>
                  <pointsize>12</pointsize>
                 </font>
                </property>
@@ -1195,7 +1195,7 @@ border:0;
                   </property>
                   <property name="font">
                    <font>
-                    <family>ZoinRegular</family>
+                    <family>LibercoinRegular</family>
                     <pointsize>11</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -1232,7 +1232,7 @@ border-style:solid;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>ZoinRegular</family>
+                    <family>LibercoinRegular</family>
                     <pointsize>11</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -1263,7 +1263,7 @@ border-style:solid;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>ZoinRegular</family>
+                    <family>LibercoinRegular</family>
                     <pointsize>11</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -1294,7 +1294,7 @@ border-style:solid;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>ZoinRegular</family>
+                    <family>LibercoinRegular</family>
                     <pointsize>11</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -1414,7 +1414,7 @@ border-style:solid;
   </layout>
  </widget>
  <resources>
-  <include location="../../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc"/>
+  <include location="../../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

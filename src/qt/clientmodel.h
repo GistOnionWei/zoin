@@ -52,7 +52,7 @@ public:
     //! Return number of connections, default is in- and outbound (total)
     int getNumConnections(unsigned int flags = CONNECTIONS_ALL) const;
     int getNumBlocks() const;
-    QString getzoinodeCountString() const;
+    QString getlibernodeCountString() const;
 
     //! Return number of transactions in the mempool
     long getMempoolSize() const;
@@ -82,7 +82,7 @@ private:
     OptionsModel *optionsModel;
     PeerTableModel *peerTableModel;
     BanTableModel *banTableModel;
-    QString cachedzoinodeCountString;
+    QString cachedlibernodeCountString;
     QTimer *pollTimer;
     QTimer *pollMnTimer;
 
@@ -103,7 +103,7 @@ Q_SIGNALS:
     // Show progress dialog e.g. for verifychain
     void showProgress(const QString &title, int nProgress);
 
-    void strzoinodesChanged(const QString &strzoinodes);
+    void strlibernodesChanged(const QString &strlibernodes);
 
 public Q_SLOTS:
     void updateTimer();

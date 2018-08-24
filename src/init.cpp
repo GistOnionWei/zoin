@@ -70,12 +70,12 @@
 #include <event2/util.h>
 #include <event2/event.h>
 #include <event2/thread.h>
-#include "activezoinode.h"
+#include "activelibernode.h"
 #include "darksend.h"
-#include "zoinode-payments.h"
-#include "zoinode-sync.h"
-#include "zoinodeman.h"
-#include "zoinodeconfig.h"
+#include "libernode-payments.h"
+#include "libernode-sync.h"
+#include "libernodeman.h"
+#include "libernodeconfig.h"
 #include "netfulfilledman.h"
 #include "flat-database.h"
 #include "instantx.h"
@@ -249,9 +249,9 @@ void Shutdown() {
 
     // STORE DATA CACHES INTO SERIALIZED DAT FILES
     /*
-    CFlatDB<CZoinodeMan> flatdb1("zoincache.dat", "magicZoinodeCache");
+    CFlatDB<CLibernodeMan> flatdb1("libercoincache.dat", "magicLibernodeCache");
     flatdb1.Dump(mnodeman);
-    CFlatDB<CZoinodePayments> flatdb2("zoinpayments.dat", "magicZoinodePaymentsCache");
+    CFlatDB<CLibernodePayments> flatdb2("libercoinpayments.dat", "magicLibernodePaymentsCache");
     flatdb2.Dump(mnpayments);
     CFlatDB<CNetFulfilledRequestManager> flatdb4("netfulfilled.dat", "magicFulfilledCache");
     flatdb4.Dump(netfulfilledman);
@@ -1039,7 +1039,7 @@ void InitLogging() {
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Zoin version %s\n", FormatFullVersion());
+    LogPrintf("Libercoin version %s\n", FormatFullVersion());
 }
 
 /** Initialize bitcoin.
@@ -1835,47 +1835,47 @@ bool AppInit2(boost::thread_group &threadGroup, CScheduler &scheduler) {
 
 
     // ********************************************************* Step 11a: setup PrivateSend
-    fZoiNode = GetBoolArg("-zoinode", false);
+    fLiberNode = GetBoolArg("-libernode", false);
     
-    LogPrintf("fZoiNode = %s\n", fZoiNode);
-    LogPrintf("zoinodeConfig.getCount(): %s\n", zoinodeConfig.getCount());
+    LogPrintf("fLiberNode = %s\n", fLiberNode);
+    LogPrintf("libernodeConfig.getCount(): %s\n", libernodeConfig.getCount());
     
-    if ((fZoiNode || zoinodeConfig.getCount() > 0) && !fTxIndex) {
-        return InitError("Enabling Zoinode support requires turning on transaction indexing."
+    if ((fLiberNode || libernodeConfig.getCount() > 0) && !fTxIndex) {
+        return InitError("Enabling Libernode support requires turning on transaction indexing."
                          "Please add txindex=1 to your configuration and start with -reindex");
     }
     
-    if (fZoiNode) {
-        LogPrintf("ZOINODE:\n");
+    if (fLiberNode) {
+        LogPrintf("LIBERNODE:\n");
         
-        if (!GetArg("-zoinodeaddr", "").empty()) {
-            // Hot Zoinode (either local or remote) should get its address in
-            // CActiveZoinode::ManageState() automatically and no longer relies on Zoinodeaddr.
-            return InitError(_("zoinodeaddr option is deprecated. Please use zoinode.conf to manage your remote zoinodes."));
+        if (!GetArg("-libernodeaddr", "").empty()) {
+            // Hot Libernode (either local or remote) should get its address in
+            // CActiveLibernode::ManageState() automatically and no longer relies on Libernodeaddr.
+            return InitError(_("libernodeaddr option is deprecated. Please use libernode.conf to manage your remote libernodes."));
         }
         
-        std::string strZoinodePrivKey = GetArg("-zoinodeprivkey", "");
-        if (!strZoinodePrivKey.empty()) {
-            if (!darkSendSigner.GetKeysFromSecret(strZoinodePrivKey, activeZoinode.keyZoinode,
-                                                  activeZoinode.pubKeyZoinode))
-            return InitError(_("Invalid zoinodeprivkey. Please see documenation."));
+        std::string strLibernodePrivKey = GetArg("-libernodeprivkey", "");
+        if (!strLibernodePrivKey.empty()) {
+            if (!darkSendSigner.GetKeysFromSecret(strLibernodePrivKey, activeLibernode.keyLibernode,
+                                                  activeLibernode.pubKeyLibernode))
+            return InitError(_("Invalid libernodeprivkey. Please see documenation."));
             
-            LogPrintf("  pubKeyZoinode: %s\n", CBitcoinAddress(activeZoinode.pubKeyZoinode.GetID()).ToString());
+            LogPrintf("  pubKeyLibernode: %s\n", CBitcoinAddress(activeLibernode.pubKeyLibernode.GetID()).ToString());
         } else {
             return InitError(
-                             _("You must specify a zoinodeprivkey in the configuration. Please see documentation for help."));
+                             _("You must specify a libernodeprivkey in the configuration. Please see documentation for help."));
         }
     }
     
-    LogPrintf("Using Zoinode config file %s\n", GetZoinodeConfigFile().string());
+    LogPrintf("Using Libernode config file %s\n", GetLibernodeConfigFile().string());
 
-    if (GetBoolArg("-zoinconflock", true) && pwalletMain && (zoinodeConfig.getCount() > 0)) {
+    if (GetBoolArg("-libercoinconflock", true) && pwalletMain && (libernodeConfig.getCount() > 0)) {
         LOCK(pwalletMain->cs_wallet);
-        LogPrintf("Locking Zoinodes:\n");
+        LogPrintf("Locking Libernodes:\n");
         uint256 mnTxHash;
         int outputIndex;
-        BOOST_FOREACH(CZoinodeConfig::CZoinodeEntry
-        mne, zoinodeConfig.getEntries()) {
+        BOOST_FOREACH(CLibernodeConfig::CLibernodeEntry
+        mne, libernodeConfig.getEntries()) {
             mnTxHash.SetHex(mne.getTxHash());
             outputIndex = boost::lexical_cast<unsigned int>(mne.getOutputIndex());
             COutPoint outpoint = COutPoint(mnTxHash, outputIndex);
@@ -1905,10 +1905,10 @@ bool AppInit2(boost::thread_group &threadGroup, CScheduler &scheduler) {
     nInstantSendDepth = GetArg("-instantsenddepth", DEFAULT_INSTANTSEND_DEPTH);
     nInstantSendDepth = std::min(std::max(nInstantSendDepth, 0), 60);
 
-    //lite mode disables all Zoinode and Darksend related functionality
+    //lite mode disables all Libernode and Darksend related functionality
     fLiteMode = GetBoolArg("-litemode", false);
-    if (fZoiNode && fLiteMode) {
-        return InitError("You can not start a zoinode in litemode");
+    if (fLiberNode && fLiteMode) {
+        return InitError("You can not start a libernode in litemode");
     }
 
     LogPrintf("fLiteMode %d\n", fLiteMode);
@@ -1924,20 +1924,20 @@ bool AppInit2(boost::thread_group &threadGroup, CScheduler &scheduler) {
        // LOAD SERIALIZED DAT FILES INTO DATA CACHES FOR INTERNAL USE
 
       /*
-       uiInterface.InitMessage(_("Loading zoinode cache..."));
-       CFlatDB<CZoinodeMan> flatdb1("zoincache.dat", "magicZoinodeCache");
+       uiInterface.InitMessage(_("Loading libernode cache..."));
+       CFlatDB<CLibernodeMan> flatdb1("libercoincache.dat", "magicLibernodeCache");
        if (!flatdb1.Load(mnodeman)) {
-           return InitError("Failed to load zoinode cache from zoincache.dat");
+           return InitError("Failed to load libernode cache from libercoincache.dat");
        }
 
        if (mnodeman.size()) {
-           uiInterface.InitMessage(_("Loading Zoinode payment cache..."));
-           CFlatDB<CZoinodePayments> flatdb2("zoinpayments.dat", "magicZoinodePaymentsCache");
+           uiInterface.InitMessage(_("Loading Libernode payment cache..."));
+           CFlatDB<CLibernodePayments> flatdb2("libercoinpayments.dat", "magicLibernodePaymentsCache");
            if (!flatdb2.Load(mnpayments)) {
-               return InitError("Failed to load zoinode payments cache from zoinpayments.dat");
+               return InitError("Failed to load libernode payments cache from libercoinpayments.dat");
            }
        } else {
-           uiInterface.InitMessage(_("Zoinode cache is empty, skipping payments and governance cache..."));
+           uiInterface.InitMessage(_("Libernode cache is empty, skipping payments and governance cache..."));
        }
 
        uiInterface.InitMessage(_("Loading fulfilled requests cache..."));
@@ -1958,7 +1958,7 @@ bool AppInit2(boost::thread_group &threadGroup, CScheduler &scheduler) {
        mnodeman.UpdatedBlockTip(chainActive.Tip());
        darkSendPool.UpdatedBlockTip(chainActive.Tip());
        mnpayments.UpdatedBlockTip(chainActive.Tip());
-       zoinodeSync.UpdatedBlockTip(chainActive.Tip());
+       libernodeSync.UpdatedBlockTip(chainActive.Tip());
    //    governance.UpdatedBlockTip(chainActive.Tip());
 
        // ********************************************************* Step 11d: start dash-privatesend thread

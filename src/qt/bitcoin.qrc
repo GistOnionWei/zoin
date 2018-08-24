@@ -89,13 +89,13 @@
         <file>res/icons/zcoin.ico</file>
         <file alias="zcoin">res/icons/zcoin.png</file>
         <file alias="zerocoin">res/icons/zerocoin.png</file>
-        <file alias="zoin-logo-white">res/icons/zoin-logo-white.png</file>
+        <file alias="libercoin-logo-white">res/icons/libercoin-logo-white.png</file>
         <file alias="fees">res/icons/fees.png</file>
-        <file alias="zoin">res/icons/zoin.png</file>
+        <file alias="libercoin">res/icons/libercoin.png</file>
         <file alias="down">res/icons/down-arrow.png</file>
         <file alias="txup">res/icons/txup.png</file>
         <file alias="txdown">res/icons/txdown.png</file>
-        <file alias="zoinodes">res/icons/zoinodes.png</file>
+        <file alias="libernodes">res/icons/libernodes.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="spinner-000">res/movies/spinner-000.png</file>
@@ -166,11 +166,11 @@
         <file alias="telegram">res/buttons/telegram.png</file>
     </qresource>
     <qresource prefix="/fonts">
-        <file alias="ZoinBlack">res/fonts/ZoinBlack.ttf</file>
-        <file alias="ZoinLight">res/fonts/ZoinLight.ttf</file>
-        <file alias="ZoinMedium">res/fonts/ZoinMedium.ttf</file>
-        <file alias="ZoinRegular">res/fonts/ZoinRegular.ttf</file>
-        <file alias="ZoinBold">res/fonts/ZoinBold.ttf</file>
-        <file alias="ZoinLightItalic">res/fonts/ZoinLightItalic.ttf</file>
+        <file alias="LibercoinBlack">res/fonts/ZoinBlack.ttf</file>
+        <file alias="LibercoinLight">res/fonts/ZoinLight.ttf</file>
+        <file alias="LibercoinMedium">res/fonts/ZoinMedium.ttf</file>
+        <file alias="LibercoinRegular">res/fonts/ZoinRegular.ttf</file>
+        <file alias="LibercoinBold">res/fonts/ZoinBold.ttf</file>
+        <file alias="LibercoinLightItalic">res/fonts/ZoinLightItalic.ttf</file>
     </qresource>
 </RCC>

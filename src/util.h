@@ -42,7 +42,7 @@ public:
     boost::signals2::signal<std::string (const char* psz)> Translate;
 };
 
-extern bool fZoiNode;
+extern bool fLiberNode;
 extern bool fLiteMode;
 extern int nWalletBackups;
 
@@ -140,7 +140,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific = true);
 const boost::filesystem::path &GetBackupsDir();
 void ClearDatadirCache();
 boost::filesystem::path GetConfigFile();
-boost::filesystem::path GetZoinodeConfigFile();
+boost::filesystem::path GetLibernodeConfigFile();
 
 #ifndef WIN32
 boost::filesystem::path GetPidFile();

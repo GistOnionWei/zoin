@@ -415,7 +415,7 @@ border:0;
               </property>
               <property name="font">
                <font>
-                <family>ZoinLight</family>
+                <family>LibercoinLight</family>
                 <pointsize>26</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
@@ -442,7 +442,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <widget class="QLabel" name="priceUSD">
                 <property name="font">
                  <font>
-                  <family>ZoinMedium</family>
+                  <family>LibercoinMedium</family>
                   <pointsize>13</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
@@ -464,7 +464,7 @@ color: white;</string>
                <widget class="QLabel" name="priceBTC">
                 <property name="font">
                  <font>
-                  <family>ZoinLight</family>
+                  <family>LibercoinLight</family>
                   <pointsize>13</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
@@ -499,7 +499,7 @@ color: white;</string>
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+               <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                 <normaloff>:/icons/Exports_45</normaloff>:/icons/Exports_45</iconset>
               </property>
               <property name="iconSize">
@@ -874,7 +874,7 @@ color: white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinRegular</family>
+                   <family>LibercoinRegular</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -992,7 +992,7 @@ QComboBox::down-arrow
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinRegular</family>
+                   <family>LibercoinRegular</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -1080,7 +1080,7 @@ QComboBox::down-arrow
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinRegular</family>
+                   <family>LibercoinRegular</family>
                    <pointsize>12</pointsize>
                   </font>
                  </property>
@@ -1161,7 +1161,7 @@ padding-left: 5;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>ZoinRegular</family>
+                   <family>LibercoinRegular</family>
                    <pointsize>12</pointsize>
                   </font>
                  </property>
@@ -1424,7 +1424,7 @@ border:0;</string>
                </property>
                <property name="font">
                 <font>
-                 <family>ZoinLight</family>
+                 <family>LibercoinLight</family>
                  <pointsize>12</pointsize>
                 </font>
                </property>
@@ -1550,7 +1550,7 @@ QScrollBar:vertical {
               <widget class="QPushButton" name="exportButton">
                <property name="font">
                 <font>
-                 <family>ZoinSemiBold</family>
+                 <family>LibercoinSemiBold</family>
                  <pointsize>12</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1571,7 +1571,7 @@ border:0
                 <string>Export Table </string>
                </property>
                <property name="icon">
-                <iconset resource="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc">
+                <iconset resource="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc">
                  <normaloff>:/icons/Exports_35</normaloff>:/icons/Exports_35</iconset>
                </property>
                <property name="iconSize">
@@ -1654,7 +1654,7 @@ border:0
   </layout>
  </widget>
  <resources>
-  <include location="../../../../../coreupgrade/zoin/src/qt/bitcoin.qrc"/>
+  <include location="../../../../../coreupgrade/libercoin/src/qt/bitcoin.qrc"/>
  </resources>
  <connections/>
 </ui>
