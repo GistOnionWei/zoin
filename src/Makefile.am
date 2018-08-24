@@ -335,15 +335,15 @@ libbitcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h \
   auxpow.h \
-  crypto/Lyra2Z/Lyra2.h \
-  crypto/Lyra2Z/Lyra2.c \
-  crypto/Lyra2Z/Lyra2Z.h \
-  crypto/Lyra2Z/Lyra2Z.c \
-  crypto/Lyra2Z/blake.c \
-  crypto/Lyra2Z/sph_blake.h \
-  crypto/Lyra2Z/sph_types.h \
-  crypto/Lyra2Z/Sponge.c \
-  crypto/Lyra2Z/Sponge.h
+  crypto/Liberhash/Lyra2.h \
+  crypto/Liberhash/Lyra2.c \
+  crypto/Liberhash/Liberhash.h \
+  crypto/Liberhash/Liberhash.c \
+  crypto/Liberhash/blake.c \
+  crypto/Liberhash/sph_blake.h \
+  crypto/Liberhash/sph_types.h \
+  crypto/Liberhash/Sponge.c \
+  crypto/Liberhash/Sponge.h
 
 # common: shared between libercoind, and libercoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)

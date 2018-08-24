@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void lyra2z_hasha(const char* input, char* output);
+void liberhash_hasha(const char* input, char* output);
 
 #ifdef __cplusplus
 }

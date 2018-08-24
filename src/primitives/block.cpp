@@ -12,8 +12,8 @@
 #include "crypto/common.h"
 #include "chainparams.h"
 #include "crypto/scrypt.h"
-#include "crypto/Lyra2Z/Lyra2Z.h"
-#include "crypto/Lyra2Z/Lyra2.h"
+#include "crypto/Liberhash/Liberhash.h"
+#include "crypto/Liberhash/Lyra2.h"
 #include "util.h"
 #include <iostream>
 #include <chrono>
