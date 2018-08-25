@@ -98,7 +98,7 @@ public:
         consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 //      static const int64 nInterval = nTargetTimespan / nTargetSpacing;
-        consensus.nPowTargetTimespan = 150 * 3; // 7.5 minutes between retargets
+        consensus.nPowTargetTimespan = 150 * 2; // 5 minutes between retargets
         consensus.nPowTargetSpacing = 150; // 2.5 minute blocks
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -133,7 +133,7 @@ public:
         //consensus.nBudgetPaymentsCycleBlocks = 16616; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
         //consensus.nBudgetPaymentsWindowBlocks = 100;
 
-        nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
+        nMaxTipAge = 24 * 60 * 60; // ~576 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
@@ -152,7 +152,7 @@ public:
         pchMessageStart[1] = 0x03;
         pchMessageStart[2] = 0xa9;
         pchMessageStart[3] = 0x51;
-        nDefaultPort = 8255;
+        nDefaultPort = 2035;
         nPruneAfterHeight = 100000;
         /**
          * btzc: libercoin init genesis block
@@ -180,9 +180,9 @@ public:
                uint256S("0x23911212a525e3d149fcad6c559c8b17f1e8326a272a75ff9bb315c8d96433ef"));
         assert(genesis.hashMerkleRoot ==
                uint256S("0x4f193d83c304ebd3bf2319611cbb84f26af7960f23d06dd243b6c93ebf4d7797"));
-        vSeeds.push_back(CDNSSeedData("159.203.124.51", "159.203.124.51", false));
+        vSeeds.push_back(CDNSSeedData("node.liberco.in", "node1.liberco.in", false));
         // Note that of those with the service bits flag, most only support a subset of possible options
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector < unsigned char > (1, 80);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector < unsigned char > (1, 48);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector < unsigned char > (1, 7);
         base58Prefixes[SECRET_KEY] = std::vector < unsigned char > (1, 208);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container < std::vector < unsigned char > > ();
@@ -245,7 +245,7 @@ public:
         consensus.BIP34Height = 21111;
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 150 * 3; // 7.5 minutes between retargets
+        consensus.nPowTargetTimespan = 150 * 3; // 5 minutes between retargets
         consensus.nPowTargetSpacing = 150; // 2.5 minute blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -290,7 +290,7 @@ public:
         pchMessageStart[2] = 0xbf;
         pchMessageStart[3] = 0x09;
 
-        nDefaultPort = 28168;
+        nDefaultPort = 1035;
         nPruneAfterHeight = 1000;
         /**
           * btzc: testnet params
@@ -318,8 +318,8 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         // libercoin test seeds
-        vSeeds.push_back(CDNSSeedData("165.227.98.85", "165.227.98.85", false));
-        vSeeds.push_back(CDNSSeedData("174.138.61.220", "174.138.61.220", false));
+        //vSeeds.push_back(CDNSSeedData("165.227.98.85", "165.227.98.85", false));
+        //vSeeds.push_back(CDNSSeedData("174.138.61.220", "174.138.61.220", false));
 
 
         //vSeeds.push_back(CDNSSeedData("92.247.116.44", "92.247.116.44", true));
