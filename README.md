@@ -7,9 +7,8 @@ What is Libercoin?
 Libercoin is the implementation of the Zerocoin protocol ( http://zerocoin.org ) guaranteeing true financial anonymity.
 
  - 2.5 minute block target
- - 21.6 million total coins hardcap
- - 100 coins per block as subsidy(currently @12.5/block)
- - Subsidy halves every 210,000 blocks (approximately 12 months)
+ - 16 million total coins hardcap
+ - 16 coins per block as subsidy
 
 For more information, as well as an immediately useable, binary version of
 the libercoin client sofware, see https://github.com/official-libercoin/libercoin/releases.
@@ -106,6 +105,7 @@ See (doc/build-windows.md) for instructions on building on Windows 64/32 bit.
 Copyright
 ---------
 
-Copyright (c) 2016-2018 Libercoin Developers
+Copyright (c) 2017-2018 Libercoin Developers
+Copyright (c) 2016-2018 Zoin Developers
 Copyright (c) 2016 Zcoin Developers
 Copyright (c) 2013-2015 Bitcoin Developers

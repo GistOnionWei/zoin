@@ -1812,30 +1812,51 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params &consensusParams, i
 
     int64_t nSubsidy = 0;
 
-    // Subsidy is cut in half every SubsidyHalvingInterval blocks
-    int halvings = nHeight / SubsidyHalvingInterval;
-
-
-    //skip block split for 25 to 12, 210000/105000 = 2 = > 3
-    if(nHeight >= SubsidyHalvingIntervalAfterFork){
-        int forkStart = nHeight - SubsidyHalvingIntervalAfterFork;
-        halvings = SubsidyHalvingValueConstant + (forkStart/SubsidyHalvingIntervalAfterFork);
+	if (210240 >= nHeight){
+        nSubsidy = 16 * COIN;
+		return nSubsidy;
     }
-
-    /* 50 block reward during dev fund phase(37.5 to dev then cut to 12*/
-    if((nHeight >= DevRewardStartBlock) && (nHeight <= DevRewardStopBlock))
-        halvings = SubsidyHalvingForDev;
-
-
-    nSubsidy = StartSubsidy >> halvings;
-
-    // NO tail emission, after we pass 1 zoi/block reward goes to 0
-    // HARDCAP @ ~21.6 million Libercoin around 12/2021
-    if (nSubsidy < TailSubsidy)
-    nSubsidy = 0;
-    //nSubsidy = TailSubsidy;
-
-    return nSubsidy;
+	
+	if (630720 >= nHeight) {
+		nSubsidy = 8 * COIN;
+		return nSubsidy;
+		
+	}
+	
+	if (1471680 >= nHeight) {
+		nSubsidy = 4 * COIN;
+		return nSubsidy;		
+	}
+	
+	if (2522880 >= nHeight) { 
+		nSubsidy = 2 * COIN;
+		return nSubsidy;
+	}
+	
+	if (3994560 >= nHeight) {
+		nSubsidy = 1 * COIN;
+		return nSubsidy;
+	}
+	
+	if (6096960 >= nHeight) {
+		nSubsidy = 0.5 * COIN;
+		return nSubsidy;
+	}
+	
+	if (9040320 >= nHeight) {
+		nSubsidy = 0.25 * COIN;
+		return nSubsidy;
+	}
+	
+	if (13419200 >= nHeight) {
+		nSubsidy = 0.125 * COIN;
+		return nSubsidy;
+	}
+	
+	if (nHeight < 13419200) {
+		return 0;
+	}
+	
 }
 
 bool IsInitialBlockDownload() {
