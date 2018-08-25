@@ -53,10 +53,10 @@ static const bool DEFAULT_WHITELISTRELAY = true;
 static const bool DEFAULT_WHITELISTFORCERELAY = true;
 /** Default for -minrelaytxfee, minimum relay fee for transactions */
 //btzc: update libercoin fee
-static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = CENT / 10; //0.001 libercoin,
+static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = CENT / 10000; //0.000001 libercoin,
 static const unsigned int MAX_STANDARD_TX_SIZE = 300000;
 //! -maxtxfee default
-static const CAmount DEFAULT_TRANSACTION_MAXFEE = 10000 * CENT;
+static const CAmount DEFAULT_TRANSACTION_MAXFEE = CENT;
 //! Discourage users to set fees higher than this amount (in satoshis) per kB
 static const CAmount HIGH_TX_FEE_PER_KB = 0.01 * CENT;
 //! -maxtxfee will warn if called with a higher fee than this amount (in satoshis)
@@ -80,11 +80,11 @@ static const unsigned int DEFAULT_MEMPOOL_EXPIRY = 72;
 /** The maximum size of a blk?????.dat, btzc:libercoin: 128 MiB */
 static const unsigned int MAX_BLOCKFILE_SIZE = 0x8000000; // 128 MiB;
 /** The pre-allocation chunk size for blk?????.dat files (since 0.8), btzc:libercoin: 16MiB */
-static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
+static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x8000000; // 128 MiB
 /** The pre-allocation chunk size for rev?????.dat files (since 0.8), btzc:libercoin: 1MiB */
-static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
+static const unsigned int UNDOFILE_CHUNK_SIZE = 0x800000; // 128 MiB
 /** Default for -blockprioritysize, maximum space for zero/low-fee transactions **/
-static const unsigned int DEFAULT_BLOCK_PRIORITY_SIZE = 50000; // 50KB
+static const unsigned int DEFAULT_BLOCK_PRIORITY_SIZE = 16000000; // 16 MB
 /** Dust Soft Limit, allowed with additional fee per output */
 //static const int64_t DUST_SOFT_LIMIT = 100000; // 0.001 LBR
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
@@ -163,13 +163,13 @@ static std::map<int, CBlock> mapBlockData;
 static const bool DEFAULT_PEERBLOOMFILTERS = true;
 
 
-static const int DevRewardStartBlock = 230250;
-static const int DevRewardStopBlock = 255250;
+static const int DevRewardStartBlock = 10;
+static const int DevRewardStopBlock = 15;
 
 //#define LIBERNODE_ENABLED_BLOCK 260000
 //#define LIBERNODE_ENABLED_BLOCK 1500
 
-#define LIBERNODE_REWARD 0.65
+#define LIBERNODE_REWARD 0.1
 // There were bugs before this block, don't do some checks on early blocks
 #define ZC_CHECK_BUG_FIXED_AT_BLOCK	233000
 
@@ -187,7 +187,7 @@ static const int DevRewardStopBlock = 255250;
 #define ZC_V2_TESTNET_SWITCH_ID_50 4
 #define ZC_V2_TESTNET_SWITCH_ID_100 10
 
-#define ZC_V1_5_STARTING_BLOCK          262500
+#define ZC_V1_5_STARTING_BLOCK          576
 #define ZC_V1_5_TESTNET_STARTING_BLOCK  200
 
 #define ZC_V1_5_GRACEFUL_PERIOD		500
