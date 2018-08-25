@@ -4,14 +4,14 @@ Libercoin
 What is Libercoin?
 -------------
 
-Libercoin is the implementation of the Zerocoin protocol ( http://zerocoin.org ) guaranteeing true financial anonymity.
+Libercoin is the implementation of the [Zerocoin protocol](http://zerocoin.org) guaranteeing true financial anonymity.
 
  - 2.5 minute block target
  - 16 million total coins hardcap
  - 16 coins per block as subsidy
 
 For more information, as well as an immediately useable, binary version of
-the libercoin client sofware, see https://github.com/official-libercoin/libercoin/releases.
+the libercoin client sofware, see https://github.com/libercoinroject/libercoin/releases.
 
 
 License
@@ -29,10 +29,6 @@ their feature or bug fix is ready.
 
 If it is a simple/trivial/non-controversial change, then one of the Libercoin
 development team members simply pulls it.
-
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[Discord](https://discordapp.com/invite/4WTD9GN).
 
 The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
@@ -74,7 +70,7 @@ Build
 ----------------------
 1.  Clone the source:
 
-        git clone https://github.com/official-libercoin/libercoin
+        git clone https://github.com/libercoinproject/libercoin
 
 2.  Build Libercoin-core:
 

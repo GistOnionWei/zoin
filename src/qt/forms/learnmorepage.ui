@@ -426,7 +426,7 @@
 background-color: rgba(255, 255, 255,0);</string>
           </property>
           <property name="text">
-           <string>Community Built, Privacy Driven</string>
+           <string>Next level of your anonymity & liberty</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -800,7 +800,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>Lyra2Libercoin</string>
+               <string>Liberhash</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -934,7 +934,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>100 LBR</string>
+               <string>16 LBR</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1010,7 +1010,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>Total Supply: 21 mil      </string>
+               <string>Total Supply: 16 mil      </string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1042,7 +1042,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>in 120 blocks</string>
+               <string>in 576 blocks</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1259,7 +1259,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>1-3% mining pool fee</string>
+               <string>5% mining pool fee</string>
               </property>
              </widget>
             </item>
@@ -1313,7 +1313,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>Masternodes</string>
+               <string>Libernodes</string>
               </property>
              </widget>
             </item>
@@ -1339,7 +1339,7 @@ background-color: rgba(255, 255, 255,0);</string>
                </font>
               </property>
               <property name="text">
-               <string>Coming soon...</string>
+               <string>already there</string>
               </property>
              </widget>
             </item>
