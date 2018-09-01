@@ -32,8 +32,8 @@
 #include "libernode-payments.h"
 #include "libernode-sync.h"
 
-#include "crypto/Liberhash/Liberhash.h"
-#include "crypto/Liberhash/Lyra2.h"
+#include "crypto/Lyra2Z/Lyra2Z.h"
+#include "crypto/Lyra2Z/Lyra2.h"
 
 #include <algorithm>
 #include <boost/thread.hpp>

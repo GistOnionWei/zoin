@@ -27,7 +27,7 @@
  * online backup system.
  */
 
-#include "Liberhash.h"
+#include "Lyra2Z.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
@@ -35,7 +35,7 @@
 #include "sph_blake.h"
 #include "Lyra2.h"
 
-void liberhash_hasha(const char* input, char* output)
+void lyra2z_hasha(const char* input, char* output)
 {
     sph_blake256_context     ctx_blake;
 
